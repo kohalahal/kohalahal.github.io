@@ -2,7 +2,7 @@
 title: KOHALAHAL BLOG
 description: kohalahal github pages blog
 author: kohalahal
-timezone: Asia/Seoul
+#timezone: Asia/Seoul
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "kohalahal.github.io" # the base hostname & protocol for your site
 #gems: [jekyll-paginate,jekyll-seo-tag,jekyll-sitemap]
