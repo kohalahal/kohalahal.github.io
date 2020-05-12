@@ -1,0 +1,35 @@
+# Site settings
+title: KOHALAHAL BLOG
+description: kohalahal github pages blog
+author: kohalahal
+timezone: Asia/Seoul
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "kohalahal.github.io" # the base hostname & protocol for your site
+#gems: [jekyll-paginate,jekyll-seo-tag,jekyll-sitemap]
+paginate: 6
+#google_analytics: 'UA-XXXXXXX-X'
+# Navigation
+permalink           : date
+nav:
+ - name: "about"
+   href: "/about"
+
+ - name: "works"
+   href: "/works"
+
+ - name: "posts"
+   href: "/posts"
+
+ - name: "tags"
+   href: "/tags"
+
+ - name: "contact"
+   href: "/mailto:kohalahal@gmail.com"
+
+   # Where things are
+
+
+collections_dir     : .
+plugins_dir         : _plugins
+layouts_dir         : _layouts
+includes_dir        : _includes
