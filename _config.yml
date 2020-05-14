@@ -1,4 +1,4 @@
-url: "kohalahal.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "http://kohalahal.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "" # the subpath of your site, e.g. /blog
 title               : "KOHALAHAL.github.io"
 
