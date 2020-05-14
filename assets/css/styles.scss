@@ -1,10 +1,17 @@
 ---
 ---
 @import "main";
+//for default layout-body div(includes all)
+.body {
+    max-width: 90%;
+    min-width:70%;
+    margin: auto;
+}
 
 //for include-header div
 .header {
     width:100%;
+    margin-bottom: 2em;
 
     a:link {
         text-decoration: none;
@@ -26,13 +33,15 @@
 .logo {
     float: left;
     margin-left: 10px;
-    margin-right: auto;
+    margin-right: 30px;
     font-family: 'Black Han Sans', sans-serif;
     font-size: 1.3em;
 }
 
 .nav {
     font-family: 'Do Hyeon', sans-serif;
+    position: relative;
+    top:0.3em;
     
     a:hover {
         text-decoration: underline;
@@ -43,13 +52,37 @@
     }
     ul {
         list-style: none;
+        position: relative;
+    }
+
+    a {
+      margin:10px;
+      position: relative;
     }
 }
 
-
-
-//for default layout-body div
-.body {
-    width: 80%;
-    margin: auto;
+.thumb-container {
+  max-width: 90%;
+  padding:30px;
 }
+
+.thumb-unit {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  max-width: 90%;
+  min-width: 60%;
+  max-height: 90%;
+  min-height: 100px;
+  margin: 0px auto 30px;
+  position: relative;
+  overflow: hidden;
+  background-position: center; /* Center the image */
+  background-size: cover;
+  background-blend-mode: color-dodge;
+  text-align: center;
+}
+
+.thumb-unit :hover {
+  color : gray;
+}
+
+

@@ -35,10 +35,10 @@ contact: >
 # Work Section
 
 projects:
-- {name: 'Project One', image: 'proj-1.png', file: 'projects/proj-1.html'}
-- {name: 'Project Two', image: 'proj-2.png', file: 'projects/proj-2.html'}
-- {name: 'Project Three', image: 'proj-3.png', file: 'projects/proj-3.html'}
-- {name: 'Project Four', image: 'proj-4.png', file: 'projects/proj-4.html'}
+- {name: '그린 스크린', image: 'proj-1.png', file: 'projects/proj-1.html'}
+- {name: '사진 필터', image: 'proj-2.png', file: 'projects/proj-2.html'}
+- {name: '코알라 호텔 awt', image: 'proj-3.png', file: 'projects/proj-3.html'}
+- {name: '스크롤', image: 'proj-4.png', file: 'projects/proj-4.html'}
 
 #-------------------------------
 # Contact Section

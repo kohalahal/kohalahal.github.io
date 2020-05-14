@@ -1,9 +1,8 @@
 ---
 layout: post
-title: '코알라 호텔'
+title: '로코모티브 스크롤'
 ---
 
-학원 4주차에 awt로 만든 것. 창부터 만들어서 너무 복잡해졌다. 그냥 윈도우에 있는 기능 다 구현해보고 json으로 입출력하는 것만 했다.
-sql이랑 연동하고 싶었는데 못했다.
+Locomotive 스크롤 페이지 복붙해보기
 
-{% include image.html url="https://github.com/kohalahal/Customerrr" image="assets/image/proj-4.png" %}
+{% include image.html url="http://kohalahal.github.io/projects/locomotive-practice.html" image="assets/image/proj-3.png" %}

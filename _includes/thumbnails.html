@@ -1,11 +1,11 @@
 <section>
   <div class="thumb-container">
     {% for project in site.data.settings.projects %}
-      <a href="{{ site.github.url }}/{{ project.file }}">
-        <div class="thumb-unit" data-folder="{{ site.github.url }}/projects/{{ project.folder }}" style="background-image: ({{ project.image }})">
+      <a href="{{ site.url }}/{{ project.file }}">
+        <div class="thumb-unit" style="background-image: linear-gradient(to right, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%), url({{ site.url }}/assets/image/{{ project.image }})">
           <div class="thumb-overlay">
-            <strong>{{ project.name }} <i class="fa fa-arrow-right" aria-hidden="true"></i></strong>
-          </div>
+            <strong>{{ project.name }}</strong>
+         </div>
         </div>
       </a>
     {% endfor %}
