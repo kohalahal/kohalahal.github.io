@@ -1,0 +1,52 @@
+#-------------------------------
+# General Site Settings
+
+menu:
+- {name: 'About', url: 'pages/about.html'}
+- {name: 'Projects', url: 'pages/projects.html'}
+- {name: 'Blog', url: 'pages/blog.html'}
+- {name: 'Contact', url: 'pages/contact.html'}
+
+#-------------------------------
+# Google Analytics Section
+
+# Analytics helps you understand who visits your website.
+# Learn more at: http://support.google.com/analytics/answer/1008065
+
+# NOTE: If you want to use Google Analytics for basic web tracking: Just uncomment and enter your UA-Code here.
+
+# If you are not using Google Analytics, please change 'google-ID' to an empty string
+google-analytics-ua: 'UA-166323516-1'
+
+#-------------------------------
+# About Section
+
+about: >
+  # Blog & 저장소
+
+  공부하면서 만든 것
+
+contact: >
+  # Contact
+
+  kohalahal@gmail.com
+
+#-------------------------------
+# Work Section
+
+projects:
+- {name: 'Project One', image: 'assets/imgae/proj-1.png', file: 'projects/proj-1.html'}
+- {name: 'Project Two', image: 'assets/imgae/proj-2.png', file: 'projects/proj-2.html'}
+- {name: 'Project Three', image: 'assets/imgae/proj-3.png', file: 'projects/proj-3.html'}
+
+#-------------------------------
+# Contact Section
+
+social:
+- {icon: 'twitter', link: '#'}
+- {icon: 'instagram', link: '#'}
+- {icon: 'github', link: 'github.com/kohalahal/github.io'}
+- {icon: 'linkedin', link: '#'}
+- {icon: 'envelope', link: 'mailto:kohalahal@gmail.com'}
+
+# social network icons available: 'twitter' / 'facebook' / 'github' / 'pinterest' 'google-plus' / 'linkedin' / 'youtube' / 'instagram' / 'dribbble' / 'behance' / 'soundcloud' / 'vine'

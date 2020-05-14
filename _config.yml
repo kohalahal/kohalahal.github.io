@@ -1,0 +1,13 @@
+url: "kohalahal.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+title               : "KOHALAHAL.github.io"
+
+sass:
+  sass_dir: _sass
+
+plugins:
+  - jekyll-admin
+
+permalink: /:year/:month:day:hour:minute
+
+timezone: Asia/Seoul

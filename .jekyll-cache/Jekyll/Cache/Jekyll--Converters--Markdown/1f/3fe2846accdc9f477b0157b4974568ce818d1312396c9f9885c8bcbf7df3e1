@@ -1,0 +1,16 @@
+I"�<p>코세라 강의에서 만든 미니 프로젝트</p>
+
+<div class="image-container">
+  <a href="https://codepen.io/kohalahal/pen/PowdOGj" target="_blank">
+    <img src="/assets/img/assets/image/proj-1.png" alt="Avatar" class="image" />
+    <div class="overlay">
+      <div class="text">
+        
+          구경하기 <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        
+      </div>
+    </div>
+  </a>
+</div>
+
+:ET

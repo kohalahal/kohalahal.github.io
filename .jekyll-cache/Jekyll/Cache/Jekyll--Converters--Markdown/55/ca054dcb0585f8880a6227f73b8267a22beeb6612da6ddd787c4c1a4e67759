@@ -1,0 +1,136 @@
+I"z
+<style>
+        
+    body {
+    background-color: #ff7733;
+    text-align:center;
+    color:#ffeee6;
+    }
+    hr {
+    border: 2px dashed #cc0066;
+    }
+    h1 {
+    color: #ffeee6;
+    text-align:center;
+    }
+
+    header {
+    background-color: #a3297a;
+    padding: 10px;
+    }
+
+    canvas {
+    width:400px;
+    hiehgt:300px;
+    background-color:#ffccb3;
+    border: 13px double #ff5500;
+    }
+
+    button,
+    button::after {
+    -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+
+    button {
+    background: none;
+    border: 3px solid #fff;
+    color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 2em 6em;
+    }
+
+
+    button:hover {
+    color: #8f246b;
+    }
+</style>
+
+<header>
+  <h1>초록 배경에 사진 합성하기</h1>
+ 
+</header>
+<body>
+  <p>
+    <canvas id="can1"></canvas>
+    <canvas id="can2"></canvas>
+        </p>
+  <hr />
+      <p>
+       주인공 사진 선택 : <input type="file" id="finput" accept="image/*" onchange="uploadf()" />
+       배경 사진 선택 : <input type="file" id="binput" accent="imgage/*" onchange="uploadb()" />
+      </p>
+  <hr />
+      <p>
+        <button id="bid1" class="b1" onclick="doo()">배경 합성하기</button>
+        <button id="bid2" class="b2" onclick="clearCanvas()">초기화</button>
+       
+&lt;/body&gt;
+<script>
+    var fimg = null;
+var bimg = null;
+var c1 = null;
+var c2 = null;
+
+function uploadf() {
+  var fi = document.getElementById("finput");
+  fimg = new SimpleImage(fi);
+  c1 = document.getElementById("can1");
+  fimg.drawTo(c1);
+}
+
+function uploadb() {
+  var fi = document.getElementById("binput");
+  bimg = new SimpleImage(fi);
+  c2 = document.getElementById("can2");
+  bimg.drawTo(c2);
+}
+
+function composite() {
+  var rimg = new SimpleImage(fimg.getWidth(), fimg.getHeight());
+  var greenThreshold = 240;
+  for (var px of fimg.values()) {
+    var x = px.getX();
+    var y = px.getY();
+    if (px.getGreen() > greenThreshold) {
+      var bpx = bimg.getPixel(x, y);
+
+      rimg.setPixel(x, y, bpx);
+    } else {
+      rimg.setPixel(x, y, px);
+    }
+  }
+  return rimg;
+}
+
+function doo() {
+  if (fimg == null || ! fimg.complete()) {
+    alert("주인공 사진이 아직 준비되지 않았어요.");
+  }
+  if (bimg == null || ! bimg.complete()) {
+    alert("배경 사진이 아직 준비되지 않았어요.");
+  }
+  
+  clearCanvas();
+  var finalimg = composite();
+  finalimg.drawTo(c1);
+}
+
+function clearCanvas() {
+  doClear(c1);
+  doClear(c2);
+}
+
+function doClear(canvas) {
+  var context = canvas.getContext("2d");
+  context.clearRect(0, 0, canvas.width, canvas.height);
+}
+</script>
+
+
+
+</p></body>
+:ET
