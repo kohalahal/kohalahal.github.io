@@ -1,0 +1,14 @@
+{
+	"version": 3,
+	"file": "styles.css",
+	"sources": [
+		"styles.scss",
+		"_sass/main.scss"
+	],
+	"sourcesContent": [
+		"@import \"main\";\n\n//for include-header div\n.header {\n    width:100%;\n\n    a:link {\n        text-decoration: none;\n      }\n      \n      a:visited {\n        text-decoration: none;\n      }\n      \n      a:hover {\n        text-decoration: none;\n      }\n      \n      a:active {\n        text-decoration: none;\n      }\n}\n\n.logo {\n    float: left;\n    margin-left: 10px;\n    margin-right: auto;\n    font-family: 'Black Han Sans', sans-serif;\n    font-size: 1.3em;\n}\n\n.nav {\n    font-family: 'Do Hyeon', sans-serif;\n    \n    a:hover {\n        text-decoration: underline;\n    }\n      \n    a:active {\n        text-decoration: underline;\n    }\n    ul {\n        list-style: none;\n    }\n}\n\n\n\n//for default layout-body div\n.body {\n    width: 80%;\n    margin: auto;\n}",
+		"\n$backgroundColor: #ffffff;\n$bodyColor: #000000;\n$bodyFont: 'Nanum Myeongjo', serif;\n\nbody {\n  background: $backgroundColor;\n  color: $bodyColor;\n  font-family: $bodyFont;\n}\n"
+	],
+	"names": [],
+	"mappings": "ACKA,AAAA,IAAI,CAAC,EACH,UAAU,EALM,OAAO,EAMvB,KAAK,EALK,OAAO,EAMjB,WAAW,EALF,gBAAgB,EAAE,KAAK,GAMjC;;ADND,AAAA,OAAO,CAAC,EACJ,KAAK,EAAC,IAAI,GAiBb;;AAlBD,AAGI,OAHG,CAGH,CAAC,CAAC,IAAI,CAAC,EACH,eAAe,EAAE,IAAI,GACtB;;AALP,AAOM,OAPC,CAOD,CAAC,CAAC,OAAO,CAAC,EACR,eAAe,EAAE,IAAI,GACtB;;AATP,AAWM,OAXC,CAWD,CAAC,CAAC,KAAK,CAAC,EACN,eAAe,EAAE,IAAI,GACtB;;AAbP,AAeM,OAfC,CAeD,CAAC,CAAC,MAAM,CAAC,EACP,eAAe,EAAE,IAAI,GACtB;;AAGP,AAAA,KAAK,CAAC,EACF,KAAK,EAAE,IAAI,EACX,WAAW,EAAE,IAAI,EACjB,YAAY,EAAE,IAAI,EAClB,WAAW,EAAE,4BAA4B,EACzC,SAAS,EAAE,KAAK,GACnB;;AAED,AAAA,IAAI,CAAC,EACD,WAAW,EAAE,sBAAsB,GAYtC;;AAbD,AAGI,IAHA,CAGA,CAAC,CAAC,KAAK,CAAC,EACJ,eAAe,EAAE,SAAS,GAC7B;;AALL,AAOI,IAPA,CAOA,CAAC,CAAC,MAAM,CAAC,EACL,eAAe,EAAE,SAAS,GAC7B;;AATL,AAUI,IAVA,CAUA,EAAE,CAAC,EACC,UAAU,EAAE,IAAI,GACnB;;AAML,AAAA,KAAK,CAAC,EACF,KAAK,EAAE,GAAG,EACV,MAAM,EAAE,IAAI,GACf"
+}

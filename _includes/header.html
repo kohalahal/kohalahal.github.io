@@ -1,10 +1,16 @@
 <header>
-  <div class="logo">
-    <a href="http://kohalahal.github.io">KOHALAHAL.github.io</a>
-  </div>
-  <nav>
-    {% for item in site.data.settings.menu %}
-      <a href="{{ site.github.url }}/{{ item.url }}">{{ item.name }}</a>
-    {% endfor %}
-  </nav>
+  <div class="header">
+    <div class="logo">
+      <a id="title" href="http://kohalahal.github.io">KOHALAHAL.github.io</a>
+    </div>
+    <div class = "nav">
+      <ul>
+        <li>
+          {% for item in site.data.settings.menu %}
+          <a href="{{ site.github.url }}/{{ item.url }}">{{ item.name }}</a>
+          {% endfor %}
+        </li>
+      </ul>
+    </div>    
+  </div>              
 </header>

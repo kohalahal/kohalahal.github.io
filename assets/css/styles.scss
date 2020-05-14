@@ -1,0 +1,55 @@
+---
+---
+@import "main";
+
+//for include-header div
+.header {
+    width:100%;
+
+    a:link {
+        text-decoration: none;
+      }
+      
+      a:visited {
+        text-decoration: none;
+      }
+      
+      a:hover {
+        text-decoration: none;
+      }
+      
+      a:active {
+        text-decoration: none;
+      }
+}
+
+.logo {
+    float: left;
+    margin-left: 10px;
+    margin-right: auto;
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 1.3em;
+}
+
+.nav {
+    font-family: 'Do Hyeon', sans-serif;
+    
+    a:hover {
+        text-decoration: underline;
+    }
+      
+    a:active {
+        text-decoration: underline;
+    }
+    ul {
+        list-style: none;
+    }
+}
+
+
+
+//for default layout-body div
+.body {
+    width: 80%;
+    margin: auto;
+}

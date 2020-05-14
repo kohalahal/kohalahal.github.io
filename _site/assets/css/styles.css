@@ -1,0 +1,25 @@
+body { background: #ffffff; color: #000000; font-family: "Nanum Myeongjo", serif; }
+
+.header { width: 100%; }
+
+.header a:link { text-decoration: none; }
+
+.header a:visited { text-decoration: none; }
+
+.header a:hover { text-decoration: none; }
+
+.header a:active { text-decoration: none; }
+
+.logo { float: left; margin-left: 10px; margin-right: auto; font-family: 'Black Han Sans', sans-serif; font-size: 1.3em; }
+
+.nav { font-family: 'Do Hyeon', sans-serif; }
+
+.nav a:hover { text-decoration: underline; }
+
+.nav a:active { text-decoration: underline; }
+
+.nav ul { list-style: none; }
+
+.body { width: 80%; margin: auto; }
+
+/*# sourceMappingURL=styles.css.map */
