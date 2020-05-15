@@ -28,6 +28,6 @@ body { background: #ffffff; color: #000000; font-family: "Nanum Myeongjo", serif
 
 .thumb-unit { box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); max-width: 90%; min-width: 60%; max-height: 90%; min-height: 100px; margin: 0px auto 30px; position: relative; overflow: hidden; background-position: center; /* Center the image */ background-size: cover; background-blend-mode: color-dodge; text-align: center; }
 
-.thumb-unit :hover { color: gray; }
+.thumb-unit :hover { background-color: gray; }
 
 /*# sourceMappingURL=styles.css.map */

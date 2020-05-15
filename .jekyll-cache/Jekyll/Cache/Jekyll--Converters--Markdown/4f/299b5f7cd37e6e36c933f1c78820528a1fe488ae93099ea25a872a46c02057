@@ -1,0 +1,17 @@
+I"�<p>학원 4주차에 awt로 만든 것. 창부터 만들어서 너무 복잡해졌다. 그냥 윈도우에 있는 기능 다 구현해보고 json으로 입출력하는 것만 했다.
+sql이랑 연동하고 싶었는데 못했다.</p>
+
+<div class="image-container">
+  <a href="https://github.com/kohalahal/Customerrr" target="_blank">
+    <img src="https://raw.githubusercontent.com/kohalahal/kohalahal.github.io/master/assets/image/assets/image/proj-4.png" class="image" width="40%" />
+    <div class="overlay">
+      <div class="text">
+        
+          구경하기 <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        
+      </div>
+    </div>
+  </a>
+</div>
+
+:ET
