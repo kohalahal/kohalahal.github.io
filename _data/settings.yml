@@ -3,7 +3,7 @@
 
 menu:
 - {name: 'About', url: 'pages/about.html'}
-- {name: 'Projects', url: 'pages/projects.html'}
+- {name: '과제', url: 'pages/projects.html'}
 - {name: 'Blog', url: 'pages/blog.html'}
 - {name: 'Contact', url: 'pages/contact.html'}
 
@@ -39,6 +39,7 @@ projects:
 - {name: '사진 필터', image: 'proj-2.png', file: 'projects/proj-2.html'}
 - {name: '코알라 호텔 awt', image: 'proj-3.png', file: 'projects/proj-3.html'}
 - {name: '스크롤', image: 'proj-4.png', file: 'projects/proj-4.html'}
+- {name: '카드 게임', image: 'proj-5.png', file: 'projects/proj-5.html'}
 
 #-------------------------------
 # Contact Section
