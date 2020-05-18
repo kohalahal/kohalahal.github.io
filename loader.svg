@@ -122,6 +122,10 @@
 			</g>
 		</g>
 	</g>
+	<animate attributeName="fill-opacity"
+begin="0s" dur="1.3s"
+values="1;0;0;0;0;0;" calcMode="linear"
+repeatCount="indefinite" />
 </g>
 <g id="Layer_3">
 	<g>
@@ -174,6 +178,10 @@
 			</g>
 		</g>
 	</g>
+	<animate attributeName="fill-opacity"
+begin="0s" dur="1.3s"
+values="0;1;0;0;0;0;" calcMode="linear"
+repeatCount="indefinite" />
 </g>
 <g id="Layer_4">
 	<g>
@@ -226,6 +234,10 @@
 			</g>
 		</g>
 	</g>
+	<animate attributeName="fill-opacity"
+begin="0s" dur="1.3s"
+values="0;0;1;0;0;0;" calcMode="linear"
+repeatCount="indefinite" />
 </g>
 <g id="Layer_5">
 	<g>
@@ -278,6 +290,10 @@
 			</g>
 		</g>
 	</g>
+	<animate attributeName="fill-opacity"
+begin="0s" dur="1.3s"
+values="0;0;0;1;0;0;" calcMode="linear"
+repeatCount="indefinite" />
 </g>
 <g id="Layer_6">
 	<g>
@@ -330,6 +346,10 @@
 			</g>
 		</g>
 	</g>
+	<animate attributeName="fill-opacity"
+begin="0s" dur="1.3s"
+values="0;0;0;0;1;0;" calcMode="linear"
+repeatCount="indefinite" />
 </g>
 <g id="Layer_7">
 	<g>
@@ -382,6 +402,10 @@
 			</g>
 		</g>
 	</g>
+	<animate attributeName="fill-opacity"
+begin="0s" dur="1.3s"
+values="0;0;0;0;0;1;" calcMode="linear"
+repeatCount="indefinite" />
 </g>
 <g id="Layer_8">
 	<g>
