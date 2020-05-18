@@ -6,4 +6,4 @@ title: '코알라 호텔'
 학원 4주차에 awt로 만든 것. 창부터 만들어서 너무 복잡해졌다. 그냥 윈도우에 있는 기능 다 구현해보고 json으로 입출력하는 것만 했다.
 sql이랑 연동하고 싶었는데 못했다.
 
-{% include image.html url="https://github.com/kohalahal/Customerrr" image="proj-3.png" %}
+{% include image.html url="https://github.com/kohalahal/Customerrr" image="proj-3.PNG" %}
