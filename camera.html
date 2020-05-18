@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+            
+        // Copyright 2015 Owen Astrachan, Drew Hilton, Susan Rodger, Robert Duvall
+        //
+        // Licensed under the Apache License, Version 2.0 (the "License");
+        // you may not use this file except in compliance with the License.
+        // You may obtain a copy of the License at
+        //
+        //    http://www.apache.org/licenses/LICENSE-2.0
+        //
+        // Unless required by applicable law or agreed to in writing, software
+        // distributed under the License is distributed on an "AS IS" BASIS,
+        // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        // See the License for the specific language governing permissions and
+        // limitations under the License.
+
+        // Created by Nick Parlante
+        // Updated by Robert Duvall
+
+
+        // Represents one pixel in a SimpleImage, supports rgb get/set.
+        SimplePixel = function (simple_image, x, y) {
+        __SimpleImageUtilities.funCheck('SimplePixel', 3, arguments.length);
+        this.container = simple_image;
+        this.x = x;
+        this.y = y;
+        };
+
+        SimplePixel.prototype = {
+        constructor: SimplePixel,
+        getX: function () {
+            __SimpleImageUtilities.funCheck('getX', 0, arguments.length);
+            return this.x;
+        },
+        getY: function () {
+            __SimpleImageUtilities.funCheck('getY', 0, arguments.length);
+            return this.y;
+        },
+        getRed: function () {
+            __SimpleImageUtilities.funCheck('getRed', 0, arguments.length);
+            return this.container.getRed(this.x, this.y);
+        },
+        getGreen: function () {
+            __SimpleImageUtilities.funCheck('getGreen', 0, arguments.length);
+            return this.container.getGreen(this.x, this.y);
+        },
+        getBlue: function () {
+            __SimpleImageUtilities.funCheck('getBlue', 0, arguments.length);
+            return this.container.getBlue(this.x, this.y);
+        },
+        getAlpha: function () {
+            __SimpleImageUtilities.funCheck('getAlpha', 0, arguments.length);
+            return this.container.getAlpha(this.x, this.y);
+        },
+        setRed: function (val) {
+            __SimpleImageUtilities.funCheck('setRed', 1, arguments.length);
+            this.container.setRed(this.x, this.y, val);
+        },
+        setGreen: function (val) {
+            __SimpleImageUtilities.funCheck('setGreen', 1, arguments.length);
+            this.container.setGreen(this.x, this.y, val);
+        },
+        setBlue: function (val) {
+            __SimpleImageUtilities.funCheck('setBlue', 1, arguments.length);
+            this.container.setBlue(this.x, this.y, val);
+        },
+        setAlpha: function (val) {
+            __SimpleImageUtilities.funCheck('setAlpha', 1, arguments.length);
+            this.container.setAlpha(this.x, this.y, val);
+        },
+        setAllFrom: function (pixel) {
+            __SimpleImageUtilities.funCheck('setAllFrom', 1, arguments.length);
+            this.setRed(pixel.getRed());
+            this.setGreen(pixel.getGreen());
+            this.setBlue(pixel.getBlue());
+            this.setAlpha(pixel.getAlpha());
+        },
+        toString: function () {
+            return 'r:' + this.getRed() + ' g:' + this.getGreen() + ' b:' + this.getBlue();
+        },
+        // Render pixel as string
+        getString: function () {
+            return this.toString();
+        }
+        };
+
+
+        // Note there is an Image built in, so don't use that name.
+        // A SimpleImage can be created with a url, size, or an existing htmlImage or canvas
+        SimpleImage = function () {
+        if (arguments.length < 0 || arguments.length > 2) {
+            __SimpleImageUtilities.funCheck('SimpleImage', 1, arguments.length);
+            return null;
+        }
+        // function map for to support "overloaded constructor"
+        var funMap = [
+            function () {
+                return __SimpleImageUtilities.EMPTY_IMAGE;
+            },
+            function (source) {
+                if (source instanceof HTMLImageElement) {
+                    return source;
+                } else if (typeof source == 'string') {
+                    return __SimpleImageUtilities.makeHTMLImageFromURL(source, this);
+                } else if (source instanceof HTMLInputElement && source.type == 'file') {
+                    return __SimpleImageUtilities.makeHTMLImageFromInput(source.files[0], this);
+                } else if (source instanceof SimpleImage) {
+                    return source.canvas;
+                } else if (source instanceof HTMLCanvasElement) {
+                    return source;
+                } else {
+                    __SimpleImageUtilities.throwError('Unrecognized value used to create a SimpleImage: ' + source);
+                }
+            },
+            function (width, height) {
+                if (width > 0 && height > 0) {
+                    return __SimpleImageUtilities.makeHTMLImageFromSize(width, height);
+                } else {
+                    __SimpleImageUtilities.throwError('Unable to create a SimpleImage with a negative width or height [' + width + 'x' + height + ']');
+                }
+            }
+        ];
+
+        // call appropriate constructor
+        var htmlImage = funMap[arguments.length].apply(this, arguments);
+        // actual content is backed by an invisible canvas
+        this.canvas = __SimpleImageUtilities.makeHTMLCanvas('SimpleImageCanvas');
+        this.canvas.style.display = 'none';
+        this.context = this.canvas.getContext('2d');
+        // when image is loaded, it will fill this in
+        this.imageData = null;
+        // check to see if we can complete the constructor now instead of waiting
+        if (htmlImage != null && (htmlImage instanceof HTMLCanvasElement || htmlImage.complete)) {
+            this.__init(htmlImage);
+        }
+        this.ACCEPTED_FILES = 'image.*';
+        }
+
+
+        SimpleImage.prototype = {
+        constructor: SimpleImage,
+        complete: function () {
+            return this.imageData != null;
+        },
+        getWidth: function () {
+            __SimpleImageUtilities.funCheck('getWidth', 0, arguments.length);
+            return this.width;
+        },
+        getHeight: function () {
+            __SimpleImageUtilities.funCheck('getHeight', 0, arguments.length);
+            return this.height;
+        },
+        getRed: function (x, y) {
+            __SimpleImageUtilities.funCheck('getRed', 2, arguments.length);
+            return this.imageData.data[this.__getIndex('getRed', x, y)];
+        },
+        getGreen: function (x, y) {
+            __SimpleImageUtilities.funCheck('getGreen', 2, arguments.length);
+            return this.imageData.data[this.__getIndex('getGreen', x, y) + 1];
+        },
+        getBlue: function (x, y) {
+            __SimpleImageUtilities.funCheck('getBlue', 2, arguments.length);
+            return this.imageData.data[this.__getIndex('getBlue', x, y) + 2];
+        },
+        getAlpha: function (x, y) {
+            __SimpleImageUtilities.funCheck('getAlpha', 2, arguments.length);
+            return this.imageData.data[this.__getIndex('getAlpha', x, y) + 3];
+        },
+        // Changes to the pixel write back to the image.
+        getPixel: function (x, y) {
+            __SimpleImageUtilities.funCheck('getPixel', 2, arguments.length);
+            __SimpleImageUtilities.rangeCheck(x, 0, this.getWidth(), 'getPixel', 'x', 'wide');
+            __SimpleImageUtilities.rangeCheck(y, 0, this.getHeight(), 'getPixel', 'y', 'tall');
+            return new SimplePixel(this, x, y);
+        },
+
+        setRed: function (x, y, value) {
+            __SimpleImageUtilities.funCheck('setRed', 3, arguments.length);
+            this.imageData.data[this.__getIndex('getRed', x, y)] = __SimpleImageUtilities.clamp(value);
+        },
+        setGreen: function (x, y, value) {
+            __SimpleImageUtilities.funCheck('setGreen', 3, arguments.length);
+            this.imageData.data[this.__getIndex('getGreen', x, y) + 1] = __SimpleImageUtilities.clamp(value);
+        },
+        setBlue: function (x, y, value) {
+            __SimpleImageUtilities.funCheck('setBlue', 3, arguments.length);
+            this.imageData.data[this.__getIndex('getBlue', x, y) + 2] = __SimpleImageUtilities.clamp(value);
+        },
+        setAlpha: function (x, y, value) {
+            __SimpleImageUtilities.funCheck('setAlpha', 3, arguments.length);
+            this.imageData.data[this.__getIndex('getAlpha', x, y) + 3] = __SimpleImageUtilities.clamp(value);
+        },
+        setPixel: function (x, y, pixel) {
+            __SimpleImageUtilities.funCheck('setPixel', 3, arguments.length);
+            __SimpleImageUtilities.rangeCheck(x, 0, this.getWidth(), 'setPixel', 'x', 'wide');
+            __SimpleImageUtilities.rangeCheck(y, 0, this.getHeight(), 'setPixel', 'y', 'tall');
+            this.setRed(x, y, pixel.getRed());
+            this.setBlue(x, y, pixel.getBlue());
+            this.setGreen(x, y, pixel.getGreen());
+            this.setAlpha(x, y, pixel.getAlpha());
+        },
+        // Scales contents of SimpleIage to the given size
+        setSize: function (width, height) {
+            __SimpleImageUtilities.funCheck('setSize', 2, arguments.length);
+            width = Math.floor(width);
+            height = Math.floor(height);
+            if (width > 0 && height > 0) {
+                // make sure we have the most current changes
+                __SimpleImageUtilities.flush(this.context, this.imageData);
+                this.imageData = __SimpleImageUtilities.changeSize(this.canvas, width, height);
+                this.width = width;
+                this.height = height;
+                this.canvas.width = width;
+                this.canvas.height = height;
+            }
+            else {
+                __SimpleImageUtilities.throwError('You tried to set the size of a SimpleImage to a negative width or height [' + width + 'x' + height + ']');
+            }
+        },
+        // Draws to the given canvas, setting its size to match SimpleImage's size
+        drawTo: function (toCanvas) {
+            if (this.imageData != null) {
+                __SimpleImageUtilities.flush(this.context, this.imageData);
+                toCanvas.width = this.getWidth();
+                toCanvas.height = this.getHeight();
+                toCanvas.getContext('2d').drawImage(this.canvas, 0, 0, toCanvas.width, toCanvas.height);
+            }
+            else {
+                var myself = this;
+                setTimeout(function() {
+                    myself.drawTo(toCanvas);
+                }, 100);
+            }
+        },
+        // Export an image as an linear array of pixels that can be iterated over
+        toArray: function () {
+            __SimpleImageUtilities.funCheck('toArray', 0, arguments.length);
+            var array = new Array();
+            // nip 2012-7
+            // 1. simple-way (this is as good or faster in various browser tests)
+            // var array = new Array(this.getWidth() * this.getHeight());
+            // 2. change to cache-friendly y/x ordering
+            // Non-firefox browsers may benefit
+            for (var y = 0; y < this.getHeight(); y++) {
+                for (var x = 0; x < this.getWidth(); x++) {
+                        //array[i++] = new SimplePixel(this, x, y);  // 2.
+                        array.push(new SimplePixel(this, x, y));  // 1.
+                }
+            }
+            return array;
+        },
+        // Support iterator within for loops (eventually)
+        values: function() {
+            __SimpleImageUtilities.funCheck('values', 0, arguments.length);
+            return this.toArray();
+        },
+        // Better name than values if we have to use it
+        pixels: function() {
+            return this.values();
+        },
+
+        // Private methods: should not be called publicly, but it should not hurt if it is
+        // Completes the construction of this object once the htmlImage is loaded
+        __init: function (img) {
+            try {
+                this.id = img.id;
+                // this is a hack to make three different cases work together:
+                // - small empty image, thumbnail images, and canvases
+                this.width = ('naturalWidth' in img) ? Math.max(img.naturalWidth, img.width) : img.width;
+                this.height = ('naturalHeight' in img) ? Math.max(img.naturalHeight, img.height) : img.height;
+                this.canvas.width = this.width;
+                this.canvas.height = this.height;
+                // are we copying an already loaded image or drawing it fresh
+                if (img instanceof HTMLCanvasElement) {
+                    var canvasData = img.getContext('2d').getImageData(0, 0, this.width, this.height);
+                    this.context.putImageData(canvasData, 0, 0);
+                }
+                else {
+                    this.context.drawImage(img, 0, 0, this.width, this.height);
+                }
+                this.imageData = this.context.getImageData(0, 0, this.width, this.height);
+            }
+            catch (err) {
+                console.log(err);
+                __SimpleImageUtilities.throwError('The name you used to create a SimpleImage was not correct: ' + img.id);
+            }
+        },
+        // computes index into 1-d array, and checks correctness of x,y values
+        __getIndex: function (funName, x, y) {
+            __SimpleImageUtilities.rangeCheck(x, 0, this.getWidth(), funName, 'x', 'wide');
+            __SimpleImageUtilities.rangeCheck(y, 0, this.getHeight(), funName, 'y', 'tall');
+            return (Math.floor(x) + Math.floor(y) * this.getWidth()) * 4;
+        }
+        };
+
+
+        // Private helper functions, add __ to reduce chance they will conflict with anyone else's method names
+        var __SimpleImageUtilities = (function () {
+        // private globals
+        // image needed to seed "sized" image
+        var EMPTY_IMAGE_DATA = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAQAAAAnZu5uAAAAAXNSR0IArs4c6QAAABVJREFUeJxiYPgPhyQwAQAAAP//AwCgshjoJhZxhgAAAABJRU5ErkJggg==';
+        // number of canvases created to hold images
+        var globalCanvasCount = 0;
+        // load image by wrapping it in an HTML element
+        function makeHTMLImage (url, name, simpleImage, loadFunc) {
+            if (loadFunc == null) {
+                loadFunc = function() {
+                    simpleImage.__init(this);
+                    console.log('loaded image: ' + simpleImage.id);
+                }
+            }
+            var img = new Image();
+            img.onload = loadFunc;
+            img.src = url;
+            img.id = name;
+            img.style.display = 'none';
+            return img;
+        }
+
+        // public utility functions
+        return {
+            // make a blank image so it is cached for future uses
+            EMPTY_IMAGE: makeHTMLImage(EMPTY_IMAGE_DATA, 'EMPTY', null, function () {}),
+
+            // create a canvas element
+            makeHTMLCanvas: function (prefix) {
+                var canvas = document.createElement('canvas');
+                canvas.id = prefix + globalCanvasCount;
+                canvas.style.display = 'none';
+                canvas.innerHTML = 'Your browser does not support HTML5.'
+                globalCanvasCount++;
+                return canvas;
+            },
+
+            // get image from uploaded file input
+            makeHTMLImageFromInput: function (file, simpleImage) {
+                console.log('creating image: ' + file.name);
+                var reader = new FileReader();
+                reader.onload = function() {
+                    makeHTMLImage(this.result, file.name.substr(file.name.lastIndexOf('/') + 1), simpleImage);
+                }
+                reader.readAsDataURL(file);
+                return null;
+            },
+
+            // get image from a relative URL
+            makeHTMLImageFromURL: function (url, simpleImage) {
+                var name = url.substr(0, url.indexOf(';'));
+                console.log('creating image: ' + name);
+                if (url.substr(0, 4) != 'http') {
+                    return makeHTMLImage(url, name, simpleImage);
+                }
+                else {
+                    // does not work --- loading image from URL taints the canvas so we cannot use it :(
+                    __SimpleImageUtilities.throwError('Unfortunately you cannot create a SimpleImage directly from a URL: ' + url);
+                }
+            },
+
+            // create an empty image of the given size
+            makeHTMLImageFromSize: function (width, height) {
+                console.log('creating image: ' + width + 'x' + height);
+                var img = __SimpleImageUtilities.EMPTY_IMAGE.cloneNode(true);
+                img.width = width;
+                img.height = height;
+                return img;
+            },
+
+            // set size of the image to the given values, scaling the pixels
+            changeSize: function (canvasOld, newWidth, newHeight) {
+                var canvasNew = __SimpleImageUtilities.makeHTMLCanvas('setSize_');
+                canvasNew.width = newWidth;
+                canvasNew.height = newHeight;
+                // draw old canvas to new canvas
+                var contextNew = canvasNew.getContext('2d');
+                contextNew.drawImage(canvasOld, 0, 0, newWidth, newHeight);
+                return contextNew.getImageData(0, 0, newWidth, newHeight);
+            },
+
+            // clamp values to be in the range 0..255
+            clamp: function (value) {
+                return Math.max(0, Math.min(Math.floor(value), 255));
+            },
+
+            // push accumulated local changes out to the screen
+            flush: function (context, imageData) {
+                if (imageData != null) {
+                    context.putImageData(imageData, 0, 0, 0, 0, imageData.width, imageData.height);
+                }
+            },
+
+            // call this to abort with a message
+            throwError: function (message) {
+                throw new Error(message);
+            },
+
+            // called from user-facing functions to check number of arguments
+            funCheck: function (funcName, expectedLen, actualLen) {
+                if (expectedLen != actualLen) {
+                    var s1 = (actualLen == 1) ? '' : 's';  // pluralize correctly
+                    var s2 = (expectedLen == 1) ? '' : 's';
+                    var message = 'You tried to call ' + funcName + ' with ' + actualLen + ' value' + s1 +
+                                    ', but it expects ' + expectedLen + ' value' + s2 + '.';
+                    // someday: think about "values" vs. "arguments" here
+                    __SimpleImageUtilities.throwError(message);
+                }
+            },
+
+            // called from user-facing functions to check if given value is valid
+            rangeCheck: function (value, low, high, funName, coordName, size) {
+                if (value < low || value >= high) {
+                    var message = 'You tried to call ' + funName + ' for a pixel with ' + coordName + '-coordinate of ' + value +
+                                    ' in an image that is only ' + high + ' pixels ' + size +
+                                    ' (valid ' + coordName + ' coordinates are ' + low + ' to ' + (high-1) + ').';
+                    __SimpleImageUtilities.throwError(message);
+                }
+            }
+        };
+        })();
+
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+            <style>
+        @import url('https://fonts.googleapis.com/css?family=Lobster');
+
+        body {
+            background-color: #46B09D;
+            padding: 0;
+            margin: 0;
+        }
+
+        h1,
+        h2 {
+        /*    background-color: #CCC;*/
+            text-align: center;
+        margin: 0;
+            font-family: 'Lobster', cursive;
+            color: #334D5D;
+            padding: 0;
+        }
+
+        h1 {
+            font-weight: bold;
+            font-size: 60px;
+            line-height: 100px;
+            padding-top: 50px;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+
+        #camera {
+            width: 800px;
+            height: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #46B09D;
+            display: block;
+        }
+
+
+        /* CAMERA FACE AND BLUE BUTTON */
+
+        #camera-front {
+            background-color: #F4EFC9;
+            width: 300px;
+            height: 150px;
+            border-top-left-radius: 22px;
+            border-top-right-radius: 22px;
+            z-index: 3;
+            position: absolute;
+            -webkit-transform: translate(-196px, 72px);
+                -ms-transform: translate(-196px, 72px);
+                    transform: translate(-196px, 72px);
+        }
+
+        #camera-front:before {
+            width: 100%;
+            bottom: 0;
+            height: 135px;
+            background-color: #D4D0B4;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            position: absolute;
+            content: "";
+        }
+
+        #camera-front:after {
+            width: 65px;
+            height: 26px;
+            background-color: #334D5D;
+            border-radius: 8px;
+            position: absolute;
+            content: "";
+            -webkit-transform: translate(15px, 50px);
+                -ms-transform: translate(15px, 50px);
+                    transform: translate(15px, 50px);
+        }
+
+
+        /* END OF CAMERA FACE AND BLUE BUTTON */
+
+
+        /* BACK AND FLASH OF CAMERA */
+
+        #flash {
+            border-bottom: 60px solid #233643;
+            border-left: 2px solid transparent;
+            border-right: 2px solid transparent;
+            border-top-left-radius: 18px;
+            border-top-right-radius: 18px;
+            height: 0;
+            width: 90px;
+            z-index: 1;
+            -webkit-transform: translate(440px, 50px);
+                -ms-transform: translate(440px, 50px);
+                    transform: translate(440px, 50px);
+            right: 0;
+        }
+
+        #flash:before {
+            background-color: #636A75;
+            position: absolute;
+            content: "";
+            width: 55px;
+            height: 35px;
+            -webkit-transform: translate(15px, 15px);
+                -ms-transform: translate(15px, 15px);
+                    transform: translate(15px, 15px);
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            border-left: 5px solid #575D66;
+        }
+
+
+        /* BACK OF CAMERA */
+
+        #flash:after {
+            border-bottom: 40px solid #334D5D;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+            height: 0;
+            width: 280px;
+            z-index: 2;
+            position: absolute;
+            content: "";
+            -webkit-transform: translate(-196px, 50px);
+                -ms-transform: translate(-196px, 50px);
+                    transform: translate(-196px, 50px);
+        }
+
+
+        /* END OF FLASH AND BACK OF CAMERA */
+
+
+        /* CAMERA HOOD */
+
+        #camera-hood {
+            border-bottom: 65px solid #F4EFC9;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            height: 0;
+            width: 300px;
+            position: absolute;
+            -webkit-transform: translate(-10px, 150px);
+                -ms-transform: translate(-10px, 150px);
+                    transform: translate(-10px, 150px);
+        }
+
+        #camera-hood:after {
+            position: absolute;
+            content: "";
+            background-color: #D9D0A0;
+            width: 320px;
+            height: 15px;
+            -webkit-transform: translate(-10px, 65px);
+                -ms-transform: translate(-10px, 65px);
+                    transform: translate(-10px, 65px);
+        }
+
+
+        /* END OF CAMERA HOOD */
+
+
+        /* CAMERA SLOT */
+
+        #camera-slot {
+            position: absolute;
+            background-color: #7C5650;
+            width: 320px;
+            height: 75px;
+            -webkit-transform: translate(-10px, 80px);
+                -ms-transform: translate(-10px, 80px);
+                    transform: translate(-10px, 80px);
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        #camera-slot:before {
+            position: absolute;
+            content: "";
+            background-color: #2A2E36;
+            width: 290px;
+            height: 25px;
+            -webkit-transform: translate(15px, 25px);
+                -ms-transform: translate(15px, 25px);
+                    transform: translate(15px, 25px);
+            border-top: 10px solid #A3837D;
+        }
+
+
+        /* END OF CAMERA SLOT */
+
+
+        /* CAMERA LENS */
+
+        #lens {
+            position: absolute;
+            /*    background-color: #FFF;*/
+            width: 120px;
+            height: 128px;
+            -webkit-transform: translate(90px, 15px);
+                -ms-transform: translate(90px, 15px);
+                    transform: translate(90px, 15px);
+        }
+
+        #lens-inner {
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #D8D6D8;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 10px solid #56887E;
+            -webkit-transform: translateY(35px);
+                -ms-transform: translateY(35px);
+                    transform: translateY(35px);
+        }
+
+        #lens-middle {
+            position: relative;
+            background-color: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 10px solid #8DBEB2;
+            -webkit-transform: translate(-17px, -15px);
+                -ms-transform: translate(-17px, -15px);
+                    transform: translate(-17px, -15px);
+        }
+
+        #lens-middle:after {
+            position: absolute;
+            content: "";
+            background-color: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 12px solid #5D4A53;
+            -webkit-transform: translate(-17px, -15px);
+                -ms-transform: translate(-17px, -15px);
+                    transform: translate(-17px, -15px);
+        }
+
+        #lens-outer {
+            position: absolute;
+            background-color: none;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 20px solid #49363E;
+            -webkit-transform: translate(-48px, -103px);
+                -ms-transform: translate(-48px, -103px);
+                    transform: translate(-48px, -103px);
+        }
+
+        #lens-outer:after {
+            position: absolute;
+            content: "";
+            background-color: none;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: 32px solid #2A2E36;
+            -webkit-transform: translate(-20px, -14px);
+                -ms-transform: translate(-20px, -14px);
+                    transform: translate(-20px, -14px);
+        }
+
+
+        /* END OF CAMERA LENS */
+
+
+        /* CAMERA VIEWFINDER */
+
+        #viewfinder {
+            position: absolute;
+            background-color: #575D66;
+            width: 55px;
+            height: 55px;
+            -webkit-transform: translate(225px, 30px);
+                -ms-transform: translate(225px, 30px);
+                    transform: translate(225px, 30px);
+            border-radius: 5px;
+            border: 3px solid #233643;
+        }
+
+        #viewfinder:before {
+            position: absolute;
+            content: "";
+            background-color: #636A75;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+        #viewfinder:after {
+            position: absolute;
+            content: "";
+            background-color: #D8D6D8;
+            width: 70%;
+            height: 70%;
+            border-radius: 50%;
+            -webkit-transform: translate(8px, 3px);
+                -ms-transform: translate(8px, 3px);
+                    transform: translate(8px, 3px);
+            opacity: 0.2;
+        }
+
+        #viewfinder:hover {
+            background-color: rgb(56, 59, 63);
+            cursor: pointer;
+        }
+
+        /* END OF CAMERA VIEWFINDER */
+
+
+        /* CAMERA BUTTONS */
+
+        #button {
+            position: absolute;
+            background-color: #F15F61;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            -webkit-transform: translate(25px, 85px);
+                -ms-transform: translate(25px, 85px);
+                    transform: translate(25px, 85px);
+            border: 2px solid #5A5150;
+        }
+
+        #button:hover {
+            background-color: #E0585A;
+            cursor: pointer;
+        }
+
+        #shutter {
+            opacity: 0;
+            -webkit-transition: all .1s ease-in;
+            -o-transition: all .1s ease-in;
+            transition: all .1s ease-in;
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            background-color: #FFF;
+            margin: 0;
+        }
+
+        #shutter.on {
+            opacity: 1;
+        }
+
+        #dial {
+            position: absolute;
+            background-color: #334D5D;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            -webkit-transform: translate(225px, 100px);
+                -ms-transform: translate(225px, 100px);
+                    transform: translate(225px, 100px);
+            border: 4px solid #2A2E36;
+        }
+
+
+        /* END OF CAMERA BUTTONS */
+
+
+        /* STRIPES */
+
+        #stripe-top,
+        #stripe-bottom {
+            position: absolute;
+            background-color: #AB8C33;
+            width: 5px;
+            height: 15px;
+            border-left: 5px solid #A45D1D;
+            border-right: 5px solid #438C6F;
+        }
+
+        #stripe-top {
+            -webkit-transform: translateX(143px);
+                -ms-transform: translateX(143px);
+                    transform: translateX(143px);
+            bottom: 0;
+        }
+
+        #stripe-bottom {
+            -webkit-transform: translate(143px, 65px);
+                -ms-transform: translate(143px, 65px);
+                    transform: translate(143px, 65px);
+            z-index: 6;
+        }
+
+        #stripe-top:before,
+        #stripe-bottom:before {
+            position: absolute;
+            content: "";
+            background-color: #A13A46;
+            width: 5px;
+            height: 15px;
+            -webkit-transform: translateX(-10px);
+                -ms-transform: translateX(-10px);
+                    transform: translateX(-10px);
+        }
+
+        #stripe-top:after,
+        #stripe-bottom:after {
+            position: absolute;
+            content: "";
+            background-color: #3E5361;
+            width: 5px;
+            height: 15px;
+            -webkit-transform: translateX(10px);
+                -ms-transform: translateX(10px);
+                    transform: translateX(10px);
+        }
+
+        #stripe-middle {
+            position: absolute;
+            background-color: #F0C84D;
+            width: 5px;
+            height: 65px;
+            border-left: 5px solid #EB8529;
+            border-right: 5px solid #5FC99C;
+            -webkit-transform: translateX(143px);
+                -ms-transform: translateX(143px);
+                    transform: translateX(143px);
+        }
+
+        #stripe-middle:before,
+        #stripe-middle:after {
+            position: absolute;
+            content: "";
+            width: 5px;
+            height: 65px;
+        }
+
+        #stripe-middle:before {
+            background-color: #E55367;
+            -webkit-transform: translateX(-10px);
+                -ms-transform: translateX(-10px);
+                    transform: translateX(-10px);
+        }
+
+        #stripe-middle:after {
+            background-color: #567689;
+            -webkit-transform: translateX(10px);
+                -ms-transform: translateX(10px);
+                    transform: translateX(10px);
+        }
+
+        #result {
+            position: absolute;
+            top:0px;
+            overflow: hidden;
+        }
+
+        #result canvas {
+            /* position: absolute; */
+            width: 220px;
+            border:10px white solid;
+            border-bottom: solid white 50px;
+        }
+
+
+        /* END OF STRIPES */
+
+    </style>
+</head>
+<body>
+    <div id="shutter"></div>
+    <audio id="mp3" src="http://www.soundjay.com/mechanical/camera-shutter-click-08.mp3"></audio>
+    <div id="camera">
+    <h1>펭수와 사진찍기</h1>
+    <h2>펭수와 추억을 남기세요</h2>
+
+
+    <div id="flash">
+        <div id="camera-front">
+        <div id="stripe-top"></div>
+        <div id="lens">
+            <div id="lens-inner">
+            <div id="lens-middle">
+            </div>
+            <div id="lens-outer">
+            </div>
+            </div>
+        </div>
+        <div id="viewfinder"></div>
+        <div id="camera-hood">
+            <div id="stripe-middle"></div>
+            <div id="stripe-bottom"></div>
+            <div id="camera-slot"></div>
+        </div>
+        <div id="button"></div>
+        <div id="dial"></div>
+        </div>
+    </div>
+    <img src="https://lh3.googleusercontent.com/proxy/jjglGH6aPpdm_1iGFV2cfYjznPx_ZyWEXgQGnNMfK4jHN3QhJJ6eBtJZXhIMUxuhSCQ8lamcvZMGZYwL5ZCqHrvY4u8qgKnhAOK_IyooC2jadt6SPjoVITrvgmcc9mqYzCB1oWRqmDZvWDR3OTxw-CwYzkVTEKyzRWp-WX-y3GRdiaGFjQo31CoI2Z1yQUx7Ns_DWfjy71IYbQsQerKrgnul72LwhEcO85GSqek34Xulsle37rqIDAAoadmiwyrocH4F42Y3iuJ2oWsiS1ZaGnZkJmI1QgUsxLLb1QCgJA">
+    <div id="result"><canvas id="result-img"></canvas></div>
+    </div>
+
+    <input type="file" id="5hal-fileUpload" accept="image/*" onchange="uploadPicture()" style="visibility: hidden;"/>
+    <img id="pengpic" src="2019122601000845100051951.jpg">
+</body>
+<script>
+
+    var button = document.getElementById("button");
+    var shutter = document.getElementById("shutter");
+    var sound = document.getElementById("mp3");
+    var fileUpload = document.getElementById("5hal-fileUpload");
+    var cameraSlot = document.getElementById("camera-slot");
+    var result = document.getElementById("result");
+    var resultImg = document.getElementById("result-img");
+    var img;
+
+    window.onload = function() {
+        var rect = cameraSlot.getBoundingClientRect();
+        result.setAttribute("style","top:"+(rect.top+40)+"px; "+"left:"+(rect.left+40)+"px;");
+    }
+
+    button.onclick = function () {
+        shutter.className="on";
+        sound.play();
+        setTimeout(function () {
+                    shutter.className="";
+                }, 30 * 2 + 10);
+    }
+
+    var view = document.getElementById("viewfinder");
+    view.onclick = function () {
+        fileUpload.click();
+    }
+
+    function uploadPicture() {
+        img = new SimpleImage(fileUpload);
+        createPicture();
+    }
+
+    function createPicture() {
+        console.log(peng instanceof HTMLImageElement);
+        var peng = document.getElementById("pengpic");
+
+        var pengPic = new SimpleImage(peng.src);
+        var resultPic = new SimpleImage(240, 335);
+        for (var px of pengPic.values()) {
+            var x = px.getX();
+            var y = px.getY();
+            if (px.getGreen() ==0) {
+            var bpx = img.getPixel(x, y);
+            resultPic.setPixel(x, y, bpx);
+            } else {
+            resultPic.setPixel(x, y, px);
+            }
+        }
+        resultPic.drawTo(resultImg);
+        showResult();
+    }
+
+    function showResult() {
+
+    }
+
+
+
+</script>
+
+</html>
