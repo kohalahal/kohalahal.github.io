@@ -5,11 +5,13 @@
     </div>
     <div class = "nav">
       <ul>
-        <li>
-          {% for item in site.data.settings.menu %}
-          <a href="{{ site.github.url }}/{{ item.url }}">{{ item.name }}</a>
-          {% endfor %}
+        
+        <li>      
+          {% for item in site.data.settings.menu %}    
+          <a href="{{ site.github.url }}/{{ item.url }}">{{ item.name }}</a>  
+          {% endfor %}        
         </li>
+        
       </ul>
     </div>    
   </div>              
