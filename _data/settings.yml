@@ -2,10 +2,11 @@
 # General Site Settings
 
 menu:
-- {name: 'About', url: 'pages/about.html'}
-- {name: '과제', url: 'pages/projects.html'}
-- {name: 'Blog', url: 'pages/blog.html'}
-- {name: 'Contact', url: 'pages/contact.html'}
+- {name: 'About', url: 'about.html'}
+- {name: '과제', url: 'projects.html'}
+- {name: 'Blog', url: 'blog.html'}
+- {name: 'cat', url: 'cat.html'}
+- {name: 'Contact', url: 'contact.html'}
 
 #-------------------------------
 # Google Analytics Section
@@ -34,14 +35,19 @@ contact: >
 #-------------------------------
 # Work Section
 
+project-categories:
+- {title: 'Java' , number: '1'}
+- {title: 'JavaScript/jQuery' , number: '2'}
+- {title: 'JSP' , number: '3'}
+
 projects:
-- {name: '그린 스크린', image: 'proj-1.PNG', file: 'projects/proj-1.html'}
-- {name: '사진 필터', image: 'proj-2.PNG', file: 'projects/proj-2.html'}
-- {name: '코알라 호텔 awt', image: 'proj-3.PNG', file: 'projects/proj-3.html'}
-- {name: '스크롤', image: 'proj-4.PNG', file: 'projects/proj-4.html'}
-- {name: '카드 게임', image: 'proj-5.PNG', file: 'projects/proj-5.html'}
-- {name: '펭수 애니메이션', image: '/pengsoo/5hal_animation.SVG', file: 'projects/proj-6.html'}
-- {name: '펭수 무한 걷기', image: 'proj-7.PNG', file: 'projects/proj-7.html'}
+- {category: '2', name: '그린 스크린', image: 'proj-1.PNG', file: 'projects/proj-1.html'}
+- {category: '2', name: '사진 필터', image: 'proj-2.PNG', file: 'projects/proj-2.html'}
+- {category: '1', name: '코알라 호텔 awt', image: 'proj-3.PNG', file: 'projects/proj-3.html'}
+- {category: '2', name: '스크롤', image: 'proj-4.PNG', file: 'projects/proj-4.html'}
+- {category: '2', name: '카드 게임', image: 'proj-5.PNG', file: 'projects/proj-5.html'}
+- {category: '2', name: '펭수 애니메이션', image: '/pengsoo/5hal_animation.SVG', file: 'projects/proj-6.html'}
+- {category: '2', name: '펭수 무한 걷기', image: 'proj-7.PNG', file: 'projects/proj-7.html'}
 
 
 
