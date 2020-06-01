@@ -42,13 +42,13 @@ progress-categories:
 - {title: '3달 차' , number: '3'}
 
 progresses:
-- {category: '0', name: '그린 스크린', image: 'progress/1.PNG', file: 'progress/pro-1.html'}
-- {category: '0', name: '사진 필터', image: 'progress/2.PNG', file: 'progress/pro-2.html'}
-- {category: '1', name: '코알라 호텔 awt', image: 'progress/3.PNG', file: 'progress/proj-3.html'}
-- {category: '2', name: '스크롤', image: 'progress/4.PNG', file: 'progress/proj-4.html'}
-- {category: '2', name: '카드 게임', image: 'progress/5.PNG', file: 'progress/proj-5.html'}
-- {category: '2', name: '펭수 그림일기', image: 'progress/6.PNG', file: 'progress/proj-6.html'}
-- {category: '2', name: '열공 펭수', image: 'progress/7.PNG', file: 'progress/proj-7.html'}
+- {category: '0', name: '그린 스크린', image: '1.PNG', file: '0-1.html'}
+- {category: '0', name: '사진 필터', image: '2.PNG', file: '0-2.html'}
+- {category: '1', name: '코알라 호텔 awt', image: '3.PNG', file: '1-3.html'}
+- {category: '2', name: '스크롤', image: '4.PNG', file: '2-4.html'}
+- {category: '2', name: '카드 게임', image: '5.PNG', file: '2-5.html'}
+- {category: '2', name: '펭수 그림일기', image: '6.PNG', file: '2-6.html'}
+- {category: '2', name: '열공 펭수', image: '7.PNG', file: '2-7.html'}
 
 #-------------------------------
 # Contact Section

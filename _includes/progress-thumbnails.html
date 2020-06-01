@@ -5,8 +5,8 @@
       <h1>{{ progress-category.title }}</h1>
       {% for progress in site.data.settings.progresses %}
       {% if progress-category.number == progress.category %}
-        <a href="{{ site.url }}/{{ progress.file }}">
-          <div class="thumb-unit" style="url(https://raw.githubusercontent.com/kohalahal/kohalahal.github.io/master/assets/image/{{ progress.image }})">
+        <a href="{{ site.url }}/progress/{{ progress.file }}">
+          <div class="thumb-unit" style="url(https://raw.githubusercontent.com/kohalahal/kohalahal.github.io/master/assets/image/progress/{{ progress.image }})">
             <div class="thumb-overlay">
               {{ progress.name }}
           </div>
