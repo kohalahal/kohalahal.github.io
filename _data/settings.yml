@@ -24,7 +24,7 @@ google-analytics-ua: 'UA-166323516-1'
 # About Section
 
 about: >
-  ## 종각 자바 국비 학원
+  ## 종각 자바 국비 학원 다닌다.
 
   공부, 과제 모음
 
@@ -32,23 +32,8 @@ contact: >
   ## Contact
 
 
-
 #-------------------------------
 # Work Section
-
-project-categories:
-- {title: 'Java' , number: '1'}
-- {title: 'JavaScript/jQuery' , number: '2'}
-- {title: 'JSP' , number: '3'}
-
-projects:
-- {category: '2', name: '그린 스크린', image: 'proj-1.PNG', file: 'projects/proj-1.html'}
-- {category: '2', name: '사진 필터', image: 'proj-2.PNG', file: 'projects/proj-2.html'}
-- {category: '1', name: '코알라 호텔 awt', image: 'proj-3.PNG', file: 'projects/proj-3.html'}
-- {category: '2', name: '스크롤', image: 'proj-4.PNG', file: 'projects/proj-4.html'}
-- {category: '2', name: '카드 게임', image: 'proj-5.PNG', file: 'projects/proj-5.html'}
-- {category: '2', name: '펭수 그림일기', image: 'proj-6.SVG', file: 'projects/proj-6.html'}
-- {category: '2', name: '열공 펭수', image: 'proj-7.PNG', file: 'projects/proj-7.html'}
 
 progress-categories:
 - {title: '예습' , number: '0'}
@@ -56,14 +41,14 @@ progress-categories:
 - {title: '2달 차' , number: '2'}
 - {title: '3달 차' , number: '3'}
 
-projects:
-- {category: '0', name: '그린 스크린', image: 'proj-1.PNG', file: 'progress/pro-1.html'}
-- {category: '0', name: '사진 필터', image: 'proj-2.PNG', file: 'progress/pro-2.html'}
-- {category: '1', name: '코알라 호텔 awt', image: 'proj-3.PNG', file: 'progress/proj-3.html'}
-- {category: '2', name: '스크롤', image: 'proj-4.PNG', file: 'progress/proj-4.html'}
-- {category: '2', name: '카드 게임', image: 'proj-5.PNG', file: 'progress/proj-5.html'}
-- {category: '2', name: '펭수 그림일기', image: 'proj-6.SVG', file: 'progress/proj-6.html'}
-- {category: '2', name: '열공 펭수', image: 'proj-7.PNG', file: 'progress/proj-7.html'}
+progresses:
+- {category: '0', name: '그린 스크린', image: 'progress/1.PNG', file: 'progress/pro-1.html'}
+- {category: '0', name: '사진 필터', image: 'progress/2.PNG', file: 'progress/pro-2.html'}
+- {category: '1', name: '코알라 호텔 awt', image: 'progress/3.PNG', file: 'progress/proj-3.html'}
+- {category: '2', name: '스크롤', image: 'progress/4.PNG', file: 'progress/proj-4.html'}
+- {category: '2', name: '카드 게임', image: 'progress/5.PNG', file: 'progress/proj-5.html'}
+- {category: '2', name: '펭수 그림일기', image: 'progress/6.PNG', file: 'progress/proj-6.html'}
+- {category: '2', name: '열공 펭수', image: 'progress/7.PNG', file: 'progress/proj-7.html'}
 
 #-------------------------------
 # Contact Section
