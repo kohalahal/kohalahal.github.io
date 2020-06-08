@@ -4,11 +4,15 @@ body { background: #ffffff; color: #000000; font-family: "Poor Story", cursive; 
 
 @font-face { font-family: "Handon3gyeopsal600g"; src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal600g.woff") format("woff"); font-weight: normal; font-style: normal; }
 
-header { position: relative; width: 100%; height: 50px; margin: 50px auto; }
+body { background: #e24747; }
 
-.body { max-width: 80%; min-width: 70%; margin: auto; font-family: "Handon3gyeopsal300g"; font-size: 1rem; }
+header { position: relative; width: 100%; height: 50px; margin: 30px auto; }
 
-h1 { font-family: "Handon3gyeopsal600g"; font-size: 1.5rem; margin: 10px 0; }
+.page { max-width: 80%; min-width: 70%; margin: auto; font-family: "Handon3gyeopsal300g"; font-size: 1rem; }
+
+.content { width: 90%; margin: auto; background-color: #ffcbcb; width: 90%; padding: 0px 10px 10px 10px; }
+
+h1 { font-family: "Handon3gyeopsal600g"; font-size: 1.5rem; margin: 10px 0; padding: 5px 30px; margin-bottom: 15px; background-color: #fff0f0; }
 
 h2 { font-family: "Handon3gyeopsal600g"; font-size: 1.3rem; }
 
@@ -40,7 +44,7 @@ a:active { color: #20003d; text-decoration: none; }
 
 .main-image { width: 100%; }
 
-.progress-category h1 { padding: 5px; padding-left: 30px; margin-bottom: 15px; background-color: #fff5fc; }
+.sub-main { position: relative; top: -10px; }
 
 .thumb-container { max-width: 100%; position: relative; }
 
@@ -48,11 +52,9 @@ a:active { color: #20003d; text-decoration: none; }
 
 .thumb-unit :hover { background-color: rgba(255, 80, 138, 0.1); }
 
-.thumb-overlay { position: absolute; margin: auto; width: 100px; height: 100px; line-height: 100px; background-color: rgba(255, 177, 214, 0.65); text-align: center; }
+.thumb-overlay { position: absolute; margin: auto; width: 100px; height: 100px; line-height: 100px; background-color: rgba(255, 255, 255, 0.77); text-align: center; }
 
-.category-heading { font-family: "Handon3gyeopsal600g"; font-size: 2.5rem; background-color: #eeeeee; padding: 10px; padding-left: 30px; }
-
-.entry-title { font-size: 2rem; line-height: 160%; }
+.entry-title { line-height: 200%; }
 
 .post-load { font-size: 20px; letter-spacing: 1px; word-spacing: 5px; line-height: 160%; }
 

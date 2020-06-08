@@ -1,0 +1,16 @@
+I":<p>이미지 픽셀을 하나씩 받아서 RGB값 조정하는 필터 여러개 만들어보는 미니 프로젝트</p>
+
+<div class="image-container">
+  <a href="https://codepen.io/kohalahal/pen/xxbyJWK" target="_blank">
+    <img src="https://raw.githubusercontent.com/kohalahal/kohalahal.github.io/master/assets/image/progress/0-2.PNG" alt="과제 이미지" class="progress-image" />
+    <div class="overlay">
+      <div class="text">
+        
+          구경하기 <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        
+      </div>
+    </div>
+  </a>
+</div>
+
+:ET

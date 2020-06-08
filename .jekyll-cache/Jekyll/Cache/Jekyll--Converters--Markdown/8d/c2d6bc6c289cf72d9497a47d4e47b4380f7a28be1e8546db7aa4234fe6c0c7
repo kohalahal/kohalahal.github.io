@@ -1,0 +1,16 @@
+I"�<p>카드 게임</p>
+
+<div class="image-container">
+  <a href="http://kohalahal.github.io/progress/card-game.html" target="_blank">
+    <img src="https://raw.githubusercontent.com/kohalahal/kohalahal.github.io/master/assets/image/progress/2-5.PNG" alt="과제 이미지" class="progress-image" />
+    <div class="overlay">
+      <div class="text">
+        
+          구경하기 <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        
+      </div>
+    </div>
+  </a>
+</div>
+
+:ET

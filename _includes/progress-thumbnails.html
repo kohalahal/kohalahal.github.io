@@ -1,7 +1,7 @@
 <section>
   <div class="thumb-container">
     {% for progress-category in site.data.settings.progress-categories %}
-    <div class="progress-category">
+    <div class="progress-categoryq title">
       <h1>{{ progress-category.title }}</h1>
       {% for progress in site.data.settings.progresses %}
       {% if progress-category.number == progress.category %}

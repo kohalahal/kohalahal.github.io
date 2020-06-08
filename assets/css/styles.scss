@@ -17,14 +17,18 @@
   font-style: normal;
 }
 
+body {
+  background: #e24747;
+}
+
 header {
   position: relative;
   width: 100%;
   height: 50px;
-  margin: 50px auto;
+  margin: 30px auto;
 }
 //for default layout-body div(includes all)
-.body {
+.page {
   max-width: 80%;
   min-width: 70%;
   margin: auto;
@@ -32,10 +36,21 @@ header {
   font-size: 1rem;
 }
 
+.content {
+  width: 90%;
+  margin: auto;
+  background-color: #ffcbcb;
+  width: 90%;
+  padding: 0px 10px 10px 10px;
+}
+
 h1 {
   font-family: "Handon3gyeopsal600g";
   font-size: 1.5rem;
   margin: 10px 0;
+  padding: 5px 30px;
+  margin-bottom: 15px;
+  background-color: #fff0f0;
 }
 
 h2 {
@@ -119,12 +134,14 @@ a:active {
   width: 100%;
 }
 
-//과제 페이지 썸네일
-.progress-category h1 {
-  padding: 5px;
-  padding-left: 30px;
-  margin-bottom: 15px;
-  background-color: #fff5fc;
+//
+.sub-main {
+  position: relative;
+  top: -10px;
+}
+.sub-main h1 {
+  
+  
 }
 
 .thumb-container {
@@ -157,28 +174,17 @@ a:active {
   width: 100px;
   height: 100px;
   line-height: 100px;
-  background-color: rgba(255, 177, 214, 0.65);  
+  background-color: rgba(255, 255, 255, 0.77);
   text-align: center;
 }
 
 //블로그
-//리스트
-.category-heading {
-  font-family: "Handon3gyeopsal600g";
-  font-size: 2.5rem;
-  background-color: #eeeeee;
-  padding: 10px;
-  padding-left: 30px;
-}
-
+//리스트에 뜨는 제목
 .entry-title {
-  font-size: 2rem;
-
-  line-height: 160%;
+  line-height: 200%;
 }
 
 //포스트
-
 .post-load {
   font-size: 20px;
   letter-spacing: 1px;
