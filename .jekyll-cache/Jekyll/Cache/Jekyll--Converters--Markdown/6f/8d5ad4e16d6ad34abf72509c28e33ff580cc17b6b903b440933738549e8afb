@@ -1,61 +1,4 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poor+Story&family=Black+Han+Sans&family=Do+Hyeon&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-166323516-1', 'auto');
-  ga('send', 'pageview');
-</script>
-
-
-
-    <title>자바의 정석 다시 읽기1</title>
-</head>
-<body>
-    <div class="page">
-        <header>
-  <div class="header">
-    <div class="logo">
-      <a id="title" href="http://kohalahal.github.io">KOHALAHAL.github.io</a>
-    </div>
-    <div class = "nav">
-      <ul>
-        
-        <li>      
-              
-          <a href="/about.html">About</a>  
-              
-          <a href="/projects.html">과제</a>  
-              
-          <a href="/progress.html">과제</a>  
-              
-          <a href="/blog.html">Blog</a>  
-              
-          <a href="/cat.html">cat</a>  
-              
-          <a href="/contact.html">Contact</a>  
-                  
-        </li>
-        
-      </ul>
-    </div>    
-  </div>              
-</header>
- 
-        <div class="content">
-        <section>
-  <div class="post-container">
-    <h1 class="post-title">자바의 정석 다시 읽기1</h1>
-    <div class="post-load"><p>※<em>이탤릭 체는 자바정석으로 공부한 나의 재구성+따로 찾은 내용</em></p>
+I"q-<p>※<em>이탤릭 체는 자바정석으로 공부한 나의 재구성+따로 찾은 내용</em></p>
 <h2 id="제2장-변수">제2장 변수</h2>
 
 <h3 id="기본형-변수">기본형 변수</h3>
@@ -339,13 +282,4 @@ main에서 실행만 시켜주면 각 객체가 자기 일을 알아서 할 수 
 
 <p><em>해보려고 하면 아예 컴파일 오류가 난다. 이건 찾아보니까 그냥 이클립스가 못하는 것이라고 한다. 그럼 그냥 이클립스없이 해볼걸. 거기까진 안해봄.</em></p>
 
-</div>
-  </div>
-
-</section>
-
-
-        </div>
-    </div>
-</body>
-</html>
+:ET

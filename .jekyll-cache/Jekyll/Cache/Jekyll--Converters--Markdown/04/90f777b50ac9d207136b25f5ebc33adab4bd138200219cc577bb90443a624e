@@ -1,61 +1,4 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poor+Story&family=Black+Han+Sans&family=Do+Hyeon&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-166323516-1', 'auto');
-  ga('send', 'pageview');
-</script>
-
-
-
-    <title>이펙티브 자바 6장 이넘과 어노테이션(아이템34~41)</title>
-</head>
-<body>
-    <div class="page">
-        <header>
-  <div class="header">
-    <div class="logo">
-      <a id="title" href="http://kohalahal.github.io">KOHALAHAL.github.io</a>
-    </div>
-    <div class = "nav">
-      <ul>
-        
-        <li>      
-              
-          <a href="/about.html">About</a>  
-              
-          <a href="/projects.html">과제</a>  
-              
-          <a href="/progress.html">과제</a>  
-              
-          <a href="/blog.html">Blog</a>  
-              
-          <a href="/cat.html">cat</a>  
-              
-          <a href="/contact.html">Contact</a>  
-                  
-        </li>
-        
-      </ul>
-    </div>    
-  </div>              
-</header>
- 
-        <div class="content">
-        <section>
-  <div class="post-container">
-    <h1 class="post-title">이펙티브 자바 6장 이넘과 어노테이션(아이템34~41)</h1>
-    <div class="post-load"><h2 id="6장">6장</h2>
+I"y<h2 id="6장">6장</h2>
 <p>참조형의 스페셜 타입 두가지:이넘, 어노테이션</p>
 
 <h3 id="아이템34인트-상수-대신-이넘을-써라">아이템34.인트 상수 대신 이넘을 써라.</h3>
@@ -152,13 +95,4 @@
 
 <p>※https://jdm.kr/blog/216</p>
 
-</div>
-  </div>
-
-</section>
-
-
-        </div>
-    </div>
-</body>
-</html>
+:ET

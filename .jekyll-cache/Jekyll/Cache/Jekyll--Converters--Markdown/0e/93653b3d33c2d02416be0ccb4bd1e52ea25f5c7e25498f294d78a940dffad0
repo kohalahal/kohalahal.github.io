@@ -1,61 +1,4 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poor+Story&family=Black+Han+Sans&family=Do+Hyeon&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-166323516-1', 'auto');
-  ga('send', 'pageview');
-</script>
-
-
-
-    <title>이펙티브 자바 4장 클래스와 인터페이스(아이템15~25)</title>
-</head>
-<body>
-    <div class="page">
-        <header>
-  <div class="header">
-    <div class="logo">
-      <a id="title" href="http://kohalahal.github.io">KOHALAHAL.github.io</a>
-    </div>
-    <div class = "nav">
-      <ul>
-        
-        <li>      
-              
-          <a href="/about.html">About</a>  
-              
-          <a href="/projects.html">과제</a>  
-              
-          <a href="/progress.html">과제</a>  
-              
-          <a href="/blog.html">Blog</a>  
-              
-          <a href="/cat.html">cat</a>  
-              
-          <a href="/contact.html">Contact</a>  
-                  
-        </li>
-        
-      </ul>
-    </div>    
-  </div>              
-</header>
- 
-        <div class="content">
-        <section>
-  <div class="post-container">
-    <h1 class="post-title">이펙티브 자바 4장 클래스와 인터페이스(아이템15~25)</h1>
-    <div class="post-load"><h3 id="아이템-15클래스와-멤버의-접근-권한을-최소화하라">&lt;아이템 15&gt;클래스와 멤버의 접근 권한을 최소화하라.</h3>
+I"�$<h3 id="아이템-15클래스와-멤버의-접근-권한을-최소화하라">&lt;아이템 15&gt;클래스와 멤버의 접근 권한을 최소화하라.</h3>
 
 <p>클래스를 내부정보(구현)과 외부정보(API)로 나눌 수 있다.</p>
 
@@ -177,13 +120,4 @@
 <h3 id="-인터페이스는-구현하는-쪽을-생각해-설계하라"><아이템21> 인터페이스는 구현하는 쪽을 생각해 설계하라</아이템21></h3>
 
 <p>디폴트 메소드는 신중히 추가, 작성해야한다. 기존 구현체에 런타임 오류 일으킬 수 있다.</p>
-</div>
-  </div>
-
-</section>
-
-
-        </div>
-    </div>
-</body>
-</html>
+:ET
