@@ -16,17 +16,10 @@
   font-weight: normal;
   font-style: normal;
 }
-
 body {
-  background: #e24747;
+  background-color: #e24747;
 }
 
-header {
-  position: relative;
-  width: 100%;
-  height: 50px;
-  margin: 30px auto;
-}
 //for default layout-body div(includes all)
 .page {
   max-width: 80%;
@@ -35,6 +28,56 @@ header {
   font-family: "Handon3gyeopsal300g";
   font-size: 1rem;
 }
+//header
+header {
+  position: relative;
+  width: 100%;
+  height: 3rem;
+  margin: 30px auto;
+}
+
+.header {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-family: "Black Han Sans", sans-serif;
+}
+
+.logo {
+  float: left;
+  margin-left: 10px;
+  margin-right: 30px;
+  font-size: 3vw;
+}
+
+.nav {
+  position: relative;
+  top: 0.3em;
+  font-size: 1.5vw;
+  width: fit-content;
+  margin: auto;
+  float: right;
+
+  ul {
+    list-style: none;
+    position: relative;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+  }
+
+  a {
+    margin: 10px;
+    position: relative;
+  }
+
+  a:hover {
+    color: rgb(104, 62, 0);
+  }
+}
+
+
+
 
 .content {
   width: 90%;
@@ -90,48 +133,13 @@ a:active {
   text-decoration: none;
 }
 //for include-header div
-.header {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  font-family: "Black Han Sans", sans-serif;
-}
 
-.logo {
-  float: left;
-  margin-left: 10px;
-  margin-right: 30px;
-  font-size: 3em;
-}
-
-.nav {
-  position: relative;
-  top: 0.3em;
-  font-size: 1.5em;
-  width: fit-content;
-  margin: auto;
-  float: right;
-
-  ul {
-    list-style: none;
-    position: relative;
-    margin-block-start: 0;
-    margin-block-end: 0;
-  }
-
-  a {
-    margin: 10px;
-    position: relative;
-  }
-
-  a:hover {
-    color: rgb(104, 62, 0);
-  }
-}
 
 //index.md
 .main-image {
   width: 100%;
+  box-sizing: border-box;
+  border: 30px solid transparent;
 }
 
 //
