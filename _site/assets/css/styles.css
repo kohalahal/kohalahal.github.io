@@ -44,7 +44,7 @@ a:active { color: #20003d; text-decoration: none; }
 
 .main-image { width: 100%; }
 
-.sub-main { position: relative; top: -10px; }
+.sub-main { position: relative; }
 
 .thumb-container { max-width: 100%; position: relative; }
 
@@ -53,6 +53,8 @@ a:active { color: #20003d; text-decoration: none; }
 .thumb-unit :hover { background-color: rgba(255, 80, 138, 0.1); }
 
 .thumb-overlay { position: absolute; margin: auto; width: 100px; height: 100px; line-height: 100px; background-color: rgba(255, 255, 255, 0.77); text-align: center; }
+
+.progress-image { position: relative; max-width: 100%; }
 
 .entry-title { line-height: 200%; }
 

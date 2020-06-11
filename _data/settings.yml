@@ -3,10 +3,8 @@
 
 menu:
 - {name: 'About', url: 'about.html'}
-- {name: '과제', url: 'projects.html'}
 - {name: '과제', url: 'progress.html'}
-- {name: 'Blog', url: 'blog.html'}
-- {name: 'cat', url: 'cat.html'}
+- {name: '읽기', url: 'read/index.html'}
 - {name: 'Contact', url: 'contact.html'}
 
 #-------------------------------
@@ -24,12 +22,12 @@ google-analytics-ua: 'UA-166323516-1'
 # About Section
 
 about: >
-  ## 종각 자바 국비 학원 다닌다.
+  # 종각 자바 국비 학원 다닌다.
 
-  공부, 과제 모음
+  ## 열공 공부, 과제 기록
 
 contact: >
-  ## Contact
+  # Contact
 
 
 #-------------------------------

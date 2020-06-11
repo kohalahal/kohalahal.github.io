@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poor+Story&family=Black+Han+Sans&family=Do+Hyeon&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-166323516-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+    <title>자바의 정석 다시 읽기 하권</title>
+</head>
+<body>
+    <div class="page">
+        <header>
+  <div class="header">
+    <div class="logo">
+      <a id="title" href="http://kohalahal.github.io">KOHALAHAL.github.io</a>
+    </div>
+    <div class = "nav">
+      <ul>
+        
+        <li>      
+              
+          <a href="/about.html">About</a>  
+              
+          <a href="/progress.html">과제</a>  
+              
+          <a href="/read/index.html">읽기</a>  
+              
+          <a href="/contact.html">Contact</a>  
+                  
+        </li>
+        
+      </ul>
+    </div>    
+  </div>              
+</header>
+ 
+        <div class="content">
+        <section>
+  <div class="post-container">
+    <h1 class="post-title">자바의 정석 다시 읽기 하권</h1>
+    <div class="post-load"><p>※<em>자바 정석 3판</em>
+<em>이탤릭 체는 자바정석으로 공부한 나의 재구성+따로 찾은 내용</em></p>
+
+<h2 id="제10장-날짜와-시간형식화">제10장 날짜와 시간&amp;형식화</h2>
+
+<h3 id="날짜">날짜</h3>
+
+<p>Date는 JDK1.0부터 제공, 기능이 부족해서 JDK1.1에서 Calendar 제공. 서로 변환되나 Date는 대부분메서드가 deprecated</p>
+
+<p>JDK1.8부터 java.time패키지 제공</p>
+
+<p>Calendar는 추상클래스</p>
+
+<p>getInstance()로 인스턴스 얻어야하는데, 시스템의 국가, 지역을 받아와서 거기 맞는 시간을 반환한다.</p>
+
+<dl>
+  <dt>이를 통해서 얻는 이점</dt>
+  <dd>Calendar를 쓰는 어플리케이션을 역법이 다른 나라에가서 써도 어플리케이션 수정 안해도 된다.</dd>
+</dl>
+
+<p>※cal.get(Calendar.month)로 얻어오는 값은 0~11이고, 0이 1월이다.</p>
+
+<dl>
+  <dt>※<em>int field</em></dt>
+  <dd>
+    <p><em>Calendar.HOUR_OF_DAY같은 거에 대해서 이펙티브에 뭔 이야기 나왔던 것 같은데..</em></p>
+  </dd>
+</dl>
+
+<p><em>public final static int로 0부터 그냥 시작하고, DATE랑 DAY_OF_MONTH는 따로있는데 같다. 동의어라고 해놨네.</em></p>
+
+<p><em>아.. ERA,년월일 이랑 // 이번달에서 몇번째날, 이번년에서 몇번째날 이런 구분이 있어서 그렇게 된 것이구나.</em></p>
+
+<p><em>이달의 몇 번 째 주인지WEEK_OF_MONTH.. 24시간중 몇시인지HOUR_OF_DAY.. 등등</em></p>
+
+<p><em>요일, 달, AM/PM등등 다른 것들에도 public final static int가 있는데 SUNDAY는 1이다.</em></p>
+
+<p><em>전체를 다 안겹치게 숫자를 배정하진 않고 그룹핑을 해서 다른 그룹끼리 그냥 겹치게 그냥 만들어놨다.</em></p>
+
+<p><em>그래놔야지 사실 밑에서 요일 메소드만들고 할때 편하긴하겠다…</em></p>
+
+<p><em>항목이 진짜 꽤 많고 주석이 하나하나 너무 많아서..</em></p>
+
+<p><em>public아닌 final static int도 있고….. 비트연산도하고…. Builder도있다. 난리났네</em></p>
+
+<h3 id="형식화">형식화</h3>
+
+<dl>
+  <dt>숫자 형식화</dt>
+  <dd>DecimalFormat</dd>
+</dl>
+
+</div>
+  </div>
+
+</section>
+
+
+        </div>
+    </div>
+</body>
+</html>
