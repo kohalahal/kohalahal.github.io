@@ -1,57 +1,4 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poor+Story&family=Black+Han+Sans&family=Do+Hyeon&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-166323516-1', 'auto');
-  ga('send', 'pageview');
-</script>
-
-
-
-    <title>자바의 정석 다시 읽기 하권</title>
-</head>
-<body>
-    <div class="page">
-        <header>
-  <div class="header">
-    <div class="logo">
-      <a id="title" href="http://kohalahal.github.io">KOHALAHAL.github.io</a>
-    </div>
-    <div class = "nav">
-      <ul>
-        
-        <li>      
-              
-          <a href="/about.html">About</a>  
-              
-          <a href="/progress.html">과제</a>  
-              
-          <a href="/read/index.html">읽기</a>  
-              
-          <a href="/contact.html">Contact</a>  
-                  
-        </li>
-        
-      </ul>
-    </div>    
-  </div>              
-</header>
- 
-        <div class="content">
-        <section>
-  <div class="post-container">
-    <h1 class="post-title">자바의 정석 다시 읽기 하권</h1>
-    <div class="post-load"><p>※<em>자바 정석 3판</em></p>
+I"�<p>※<em>자바 정석 3판</em></p>
 
 <p><em>이탤릭 체는 자바정석으로 공부한 나의 재구성+따로 찾은 내용</em></p>
 
@@ -137,19 +84,18 @@
 <p><em>이것이 상속의 강력한 이점이군용</em></p>
 
 <h3 id="핵심-인터페이스">핵심 인터페이스</h3>
+
 <p>:</p>
 <ol>
   <li>List</li>
   <li>Set</li>
   <li>Map</li>
 </ol>
-</div>
-  </div>
 
-</section>
-
-
-        </div>
-    </div>
-</body>
-</html>
+<p>:</p>
+<ol>
+  <li>객체 정의해놓은 것 -&gt; 객체 생성에 사용한다.</li>
+  <li>데이터의 집합(타입 상관 없다.)+함수들</li>
+  <li>사용자 정의 타입</li>
+</ol>
+:ET

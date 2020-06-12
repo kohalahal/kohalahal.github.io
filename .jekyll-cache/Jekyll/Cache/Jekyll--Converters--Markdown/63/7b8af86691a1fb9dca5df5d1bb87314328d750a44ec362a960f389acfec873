@@ -1,57 +1,4 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poor+Story&family=Black+Han+Sans&family=Do+Hyeon&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-166323516-1', 'auto');
-  ga('send', 'pageview');
-</script>
-
-
-
-    <title>자바의 정석 다시 읽기 상권</title>
-</head>
-<body>
-    <div class="page">
-        <header>
-  <div class="header">
-    <div class="logo">
-      <a id="title" href="http://kohalahal.github.io">KOHALAHAL.github.io</a>
-    </div>
-    <div class = "nav">
-      <ul>
-        
-        <li>      
-              
-          <a href="/about.html">About</a>  
-              
-          <a href="/progress.html">과제</a>  
-              
-          <a href="/read/index.html">읽기</a>  
-              
-          <a href="/contact.html">Contact</a>  
-                  
-        </li>
-        
-      </ul>
-    </div>    
-  </div>              
-</header>
- 
-        <div class="content">
-        <section>
-  <div class="post-container">
-    <h1 class="post-title">자바의 정석 다시 읽기 상권</h1>
-    <div class="post-load"><p>※<em>자바 정석 3판</em></p>
+I"�-<p>※<em>자바 정석 3판</em></p>
 
 <p><em>이탤릭 체는 자바정석으로 공부한 나의 재구성+따로 찾은 내용</em></p>
 <h2 id="제2장-변수">제2장 변수</h2>
@@ -138,7 +85,7 @@
 
 <p>실수: 최대값+a는 무한대, 최소값-a는 0</p>
 
-<h2 id="제3장-연산자">제3장 연산자</h2>
+<h3 id="제3장-연산자">제3장 연산자</h3>
 
 <p>※타입의 최대값 주의</p>
 
@@ -162,13 +109,13 @@
 
 <p>효율을 생각해서 순서 배치하자.</p>
 
-<h2 id="제5장-배열">제5장 배열</h2>
+<h3 id="제5장-배열">제5장 배열</h3>
 
 <p>Arrays 클래스는 배열의 편의메소드들이 담긴 Collections 프레임워크의 멤버 클래스. 인스턴스화는 불가.</p>
 
 <p>※배열의 복사는 System.arraycopy()가 효율적.</p>
 
-<h2 id="제6장-객체지향-1">제6장 객체지향 1</h2>
+<h3 id="제6장-객체지향-1">제6장 객체지향 1</h3>
 
 <p>객체지향 프로그래밍의 특징</p>
 
@@ -183,36 +130,29 @@
   <dd>
     <p>c언어를 보면 main이 액션을 할 수 있는 최소 단위였다.</p>
   </dd>
-  <dd>
-    <p>데이터, 명령들을 단위로 묶어두기는 했지만, 그게 다였다.</p>
-  </dd>
-  <dd>
-    <p>main에다가 써야지 실행이 됐다. 하나의 execute은 하나의 main만 실행한다. main이 액션의 최대 단위이기도 한 것.</p>
-  </dd>
-  <dd>
-    <p>oop에서는 main이 데이터, 함수 묶음 속으로 들어가고, 그 바깥에는 이제 main이 아예 존재하지 않게됐다.</p>
-  </dd>
-  <dd>
-    <p>데이터+함수+main 묶음이 이제 액션 할 수 있는 최소이자 최대 단위가 됐다. 그것을 객체라 부른다.</p>
-  </dd>
-  <dd>
-    <p>여기도 실행되는 main은 하나지만,</p>
-  </dd>
-  <dd>
-    <p>oop를 자판기에 비유하는 것처럼 main에서 객체를 켜기만 하면 각 객체가 자기 일을 알아서 할 수 있게 됐다.</p>
-  </dd>
-  <dd>
-    <p>그래서 특징 1번은 코드 재사용성은 절차적 언어에도  없는 건 아니지만 암튼 더~마니 묶으니(데이터들+함수들) 더 재사용이 용이할 것이다.</p>
-  </dd>
-  <dd>
-    <p>다른데다가 가져가서 쓰기도 편하다.</p>
-  </dd>
-  <dd>
-    <p>특징 2번은 객체 하나만 있어도 동작할 수 있으니 테스트하기도 편하고, 적절하게 나누면 수정하기도 편하다.</p>
-  </dd>
-  <dd>
-    <p>특징 3번은 각 객체가 자기 데이터를 갖고있어서, 값을 가릴수도 있고 안줄 수도 있어서 데이터 보호, 올바른 값 유지에 좋다.</p>
-  </dd>
+</dl>
+
+<p>데이터, 명령들을 단위로 묶어두기는 했지만, 그게 다였다.</p>
+
+<p>main에다가 써야지 실행이 됐다. 하나의 execute은 하나의 main만 실행한다. main이 액션의 최대 단위이기도 한 것.</p>
+
+<p>: oop에서는 main이 데이터, 함수 묶음 속으로 들어가고, 그 바깥에는 이제 main이 아예 존재하지 않게됐다.</p>
+
+<p>데이터+함수+main 묶음이 이제 액션 할 수 있는 최소이자 최대 단위가 됐다. 그것을 객체라 부른다.</p>
+
+<p>여기도 실행되는 main은 하나지만,</p>
+
+<p>oop를 자판기에 비유하는 것처럼 main에서 객체를 켜기만 하면 각 객체가 자기 일을 알아서 할 수 있게 됐다.</p>
+
+<p>: 그래서 특징 1번은 코드 재사용성은 절차적 언어에도  없는 건 아니지만 암튼 더~마니 묶으니(데이터들+함수들) 더 재사용이 용이할 것이다.</p>
+
+<p>다른데다가 가져가서 쓰기도 편하다.</p>
+
+<p>특징 2번은 객체 하나만 있어도 동작할 수 있으니 테스트하기도 편하고, 적절하게 나누면 수정하기도 편하다.</p>
+
+<p>특징 3번은 각 객체가 자기 데이터를 갖고있어서, 값을 가릴수도 있고 안줄 수도 있어서 데이터 보호, 올바른 값 유지에 좋다.</p>
+
+<dl>
   <dt>클래스</dt>
   <dd>
     <ol>
@@ -229,16 +169,19 @@
 
 <p><em>참조변수: 인스턴스에 붙이는 이름. 이름 안붙여주면 다시 부를 수 없다.</em></p>
 
-<dl>
-  <dt>변수</dt>
-  <dd>클래스 변수 - 모든 인스턴스가 공유. 인스턴스 없어도 사용 가능. <em>희미한 main의 흔적?? 기본형 타입과 함께</em></dd>
-  <dd>인스턴스 변수 - 각 인스턴스는 자기 인스턴스 변수 가짐.</dd>
-  <dd>지역 변수 - 메서드 내</dd>
-  <dt>생성자</dt>
-  <dd>인스턴스를 초기화하는 메소드</dd>
-  <dd>클래스 이름과 같다.</dd>
-  <dd>리턴 값이 없다.</dd>
-</dl>
+<p>변수:</p>
+
+<p>클래스 변수 - 모든 인스턴스가 공유. 인스턴스 없어도 사용 가능. <em>희미한 main의 흔적?? 기본형 타입과 함께</em></p>
+
+<p>인스턴스 변수 - 각 인스턴스는 자기 인스턴스 변수 가짐.</p>
+
+<p>지역 변수 - 메서드 내</p>
+
+<p>생성자: 인스턴스를 초기화하는 메소드</p>
+
+<p>클래스 이름과 같다.</p>
+
+<p>리턴 값이 없다.</p>
 
 <p>※<em>인스턴스의 생성은 new 연산자가 한다. 저장공간 할당 바당 참조값을 객체에게 반환.</em></p>
 
@@ -246,9 +189,9 @@
 
 <p><em>그 다음에 호출된 생성자가 새 객체를 초기화.</em></p>
 
-<h2 id="제7장-객체지향-2">제7장 객체지향 2</h2>
+<h3 id="제7장-객체지향-2">제7장 객체지향 2</h3>
 
-<h3 id="상속">상속</h3>
+<p>상속</p>
 
 <p>생성자와 초기화 블럭은 상속되지 않는다.</p>
 
@@ -272,7 +215,7 @@
 
 <p>※<em>싱글턴하려면 상속 쓰는건 좀 아닌 것 같다.</em></p>
 
-<h2 id="제8장-예외처리">제8장 예외처리</h2>
+<h3 id="제8장-예외처리">제8장 예외처리</h3>
 
 <dl>
   <dt>에러</dt>
@@ -312,7 +255,7 @@
 
 <p><em>이런걸 만들고 이펙티브 자바에서 상속하려면 하지말라고 했나보다.</em></p>
 
-<h2 id="제9장-유용한-자바-기본-라이브러리">제9장 유용한 자바 기본 라이브러리</h2>
+<h3 id="제9장-유용한-자바-기본-라이브러리">제9장 유용한 자바 기본 라이브러리</h3>
 
 <p>※<em>Object 클래스 메소드는 뭐 어케해놨는지 보려니까 native코드로 많이 돼 있었다.</em></p>
 
@@ -338,13 +281,4 @@
 
 <p><em>해보려고 하면 아예 컴파일 오류가 난다. 이건 찾아보니까 그냥 이클립스가 못하는 것이라고 한다. 그럼 그냥 이클립스없이 해볼걸. 거기까진 안해봄.</em></p>
 
-</div>
-  </div>
-
-</section>
-
-
-        </div>
-    </div>
-</body>
-</html>
+:ET
