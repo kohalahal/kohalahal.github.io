@@ -1,57 +1,4 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poor+Story&family=Black+Han+Sans&family=Do+Hyeon&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-166323516-1', 'auto');
-  ga('send', 'pageview');
-</script>
-
-
-
-    <title>이펙티브 자바 앞부분 + 1,2장 객체 생성과 파괴, Object 메소드(아이템1~14)</title>
-</head>
-<body>
-    <div class="page">
-        <header>
-  <div class="header">
-    <div class="logo">
-      <a id="title" href="http://kohalahal.github.io">KOHALAHAL.github.io</a>
-    </div>
-    <div class = "nav">
-      <ul>
-        
-        <li>      
-              
-          <a href="/about.html">About</a>  
-              
-          <a href="/progress.html">과제</a>  
-              
-          <a href="/read/index.html">읽기</a>  
-              
-          <a href="/contact.html">Contact</a>  
-                  
-        </li>
-        
-      </ul>
-    </div>    
-  </div>              
-</header>
- 
-        <div class="content">
-        <section>
-  <div class="post-container">
-    <h1 class="post-title">이펙티브 자바 앞부분 + 1,2장 객체 생성과 파괴, Object 메소드(아이템1~14)</h1>
-    <div class="post-load"><h2 id="제1장-들어가기">제1장 들어가기</h2>
+I"3*<h2 id="제1장-들어가기">제1장 들어가기</h2>
 
 <p>프로그래밍 언어를 할 때, 그 언어 핵심(알고리즘적인지 함수적인지 객체지향인지..), 어휘, 관례·효과적 방법등 알아야.</p>
 
@@ -173,13 +120,4 @@ Collections: 인스턴스화 불가 유틸리티 클래스, static 메소드로 
 
 <h3 id="아이템9-try-finally-보다-try-with-resources를-사용하라">아이템9 try-finally 보다 try-with-resources를 사용하라</h3>
 
-</div>
-  </div>
-
-</section>
-
-
-        </div>
-    </div>
-</body>
-</html>
+:ET
