@@ -157,21 +157,173 @@ Collections: 인스턴스화 불가 유틸리티 클래스, static 메소드로 
     <span class="o">}</span>
 <span class="o">}</span>
 
+<span class="nc">NutirtionFacts</span> <span class="n">cocaCola</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">NutritionFacts</span><span class="o">.</span><span class="na">Builder</span><span class="o">(</span><span class="mi">240</span><span class="o">,</span> <span class="mi">8</span><span class="o">).</span><span class="na">calories</span><span class="o">(</span><span class="mi">100</span><span class="o">).</span><span class="na">sodium</span><span class="o">(</span><span class="mi">35</span><span class="o">).</span><span class="na">carbonhydrate</span><span class="o">(</span><span class="mi">27</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
+
 </code></pre></div></div>
+<p>※<em>new는 NutritionFacts 뉴가 아니고 .Builder의 뉴</em>
+※<em>내부 클래스는 static으로 하라는 아이템 나중에 나옴</em></p>
 
 <h3 id="아이템3-private-생성자나-열거타입으로-싱글턴임을-보증하라">아이템3 private 생성자나 열거타입으로 싱글턴임을 보증하라</h3>
+
+<p>무엇을? 함수 혹은 설계상 유일해야하는 사스탬 컴포넌트 ex)DAO</p>
+
+<p>어떻게? 방법은 보통 두 가지</p>
+
+<ol>
+  <li>
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">Elvice</span> <span class="no">INSTANCE</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Elvis</span><span class="o">();</span>
+</code></pre></div>    </div>
+  </li>
+  <li></li>
+</ol>
+
+<p>private 생성자에 getInstance 메소드</p>
+
+<h4 id="아니면-팩토리-이넘-방법도-있다">아니면 팩토리, 이넘 방법도 있다.</h4>
+
+<ol>
+  <li>팩토리</li>
+</ol>
+
+<dl>
+  <dt>장점</dt>
+  <dd>API 수정 없이 싱글턴 아니게 변경 가능, 제너릭 가능, supplier로 사용 가능</dd>
+</dl>
+
+<ol>
+  <li>열거</li>
+</ol>
+
+<dl>
+  <dt>장점</dt>
+  <dd>직렬화에 굿</dd>
+</dl>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="nc">Elvis</span> <span class="o">{</span>
+    <span class="no">INSTANCE</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">leaveTheBuildeing</span><span class="o">()</span> <span class="o">{</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>다른 방법은 직렬화 ㅇㅋ이지만 모든 인스턴스 필드를 transient(일시적)으로 선언하고
+readResolve() 메서드로 return INSTANCE; 해야한다.</p>
+
+<p>안그러면 역직렬화하면 새 인스턴스를 만들게된다.</p>
+
+<h3 id="근데-4번-열거가-젤조아">근데 4번 열거가 젤조아</h3>
+
+<p><em>single shared instance에 대해서도 보기</em></p>
 
 <h3 id="아이템4-인스턴스화를-막으려거든-private-생성자를-사용하라">아이템4 인스턴스화를 막으려거든 private 생성자를 사용하라</h3>
 
 <h3 id="아이템5-자원을-직접-명시하지-말고-의존-객체-주입을-사용하라">아이템5 자원을 직접 명시하지 말고 의존 객체 주입을 사용하라</h3>
 
+<p>사용 자원에 따라 동작 달라지는 클래스는 정적 유틸리티 클래스타 싱글턴 방식 적절하지 않다. 인스턴스 생성때 자원 넘겨주는 방식 써라.</p>
+
 <h3 id="아이템6-불필요한-객체-생성을-피하라">아이템6 불필요한 객체 생성을 피하라</h3>
+
+<p>자주 쓰는 것은 static 변수로 두기.</p>
 
 <h3 id="아이템7-다-쓴-객체-참조를-해제하라">아이템7 다 쓴 객체 참조를 해제하라</h3>
 
+<p>아니면 가끔 gc가 냠냠 못해서 오류날 수 있어.</p>
+
 <h3 id="아이템8-finalizer와-cleaner-사용을-피하라">아이템8 finalizer와 cleaner 사용을 피하라</h3>
 
+<p>얘네 즉시 실행 안된다. 예측도 안돼. 수행 여부도 보장 안돼.</p>
+
+<h3 id="나의-jvm과-고객-시스템-jvm-다르다">나의 JVM과 고객 시스템 JVM 다르다.</h3>
+
+<p>JVM 영향받고 파일 동시에 열 수 있는 개수 한계있는데 새 파일 못 열 수 있다.</p>
+
+<p>그냥 AutoCloseable 구현하고 close()해라. try-with-resources가 조아.</p>
+
+<p>네이티브 peer객체는 gc가 존재몰라서 finalizer로 처리하기 적당. 근데 얘도 그냥 close()가 조아.</p>
+
 <h3 id="아이템9-try-finally-보다-try-with-resources를-사용하라">아이템9 try-finally 보다 try-with-resources를 사용하라</h3>
+
+<p>이게 오류 trace도 더 잘 나와.</p>
+
+<h2 id="제3장-모든-객체의-공통-메서드">제3장 모든 객체의 공통 메서드</h2>
+
+<h3 id="아이템10-equals는-일반-규약을-지켜-재정의하라">아이템10 equals는 일반 규약을 지켜 재정의하라</h3>
+
+<p>자바에서 ‘같다’라는 것은</p>
+<ol>
+  <li>반사성 x-&gt;x</li>
+  <li>대칭성 x-&gt;y y-&gt;x</li>
+  <li>추이성 x-&gt;y-&gt;z</li>
+  <li>일관성 x-&gt;x, x-&gt;x, x-&gt;x …</li>
+  <li>null 아님
+지켜질 때 같다.</li>
+</ol>
+
+<p>서로 다른 타입 비교를 조심해라</p>
+
+<p>구체 클래스를 상속해서 값을 추가하고, equals 규약 만족시키며 오버라이드 할 방법은 존재하지않는다.</p>
+
+<dl>
+  <dt>리스코프 치환 법칙</dt>
+  <dd>하위는 상위 속성 유지, 상위 노릇 가능해야.</dd>
+</dl>
+
+<p>구체 클래스 상속, 값 추가는 좋지않다.</p>
+
+<p>Timestamp는 Date에 나노세컨 추가해서 둘을 섞어쓰면 엉뚱 동작 하기도 한다.</p>
+
+<p><strong>차일드 is a 페어런트</strong> 아니면</p>
+
+<p>상속 대신 컴포지션하라. 그러면 equals 규약을 지키면서 하위 클래스끼리 비교 가능.</p>
+
+<p>equals에 신뢰할 수 없는 자원 쓰지마라. 이퀄즈는 메모리에 존재하는 객체만을 사용, 결정을 만드는 계산을 수행해야.</p>
+
+<p>java.net.URL의 이퀄즈는 IP주소로 해서 비교해서 결과 다르기도하다.</p>
+
+<p>만일 오버라이드 했다면 대칭, 추이, 일관성이 중요하니 이것을 테스트하라.</p>
+
+<h3 id="아이템11-equals를-재정의하려거든-hashcode도-재정의하라">아이템11 equals를 재정의하려거든 hashCode도 재정의하라</h3>
+
+<h3 id="아이템12-tostring을-항상-재정의하라">아이템12 toString을 항상 재정의하라</h3>
+
+<h3 id="아이템13-clone-재정의는-주의해서-진행하라">아이템13 clone 재정의는 주의해서 진행하라</h3>
+
+<p>Cloneable 인터페이스는 표시용 인터페이스가 아니라 clone()이라는 메소드 동작 방식을 변경하는 이례적 사용법이다. 따라하지는 말자.</p>
+
+<p>※자바는 오버라이드 시 메소드 리턴 타입을 그 하위타입으로 할 수 있다. 공변 covariant return typing 지원하기 땜에. 그렇게 하길 권장함.</p>
+
+<p>super.clone()을 꼭 안쓰고 생성자 써도 되지만 그러면 cloneable할 필요가 없다. 그리고 만약에 이걸 상속받은 애가 super.clone()하면 문제생기니 하지말자.</p>
+
+<p><strong>불변 객체는 클론할 필요가 없어</strong></p>
+
+<p>안에 가변 객체 든 애들은 그 요소들을 재귀 clone()해야한다.</p>
+
+<p>쓰레드 안전 클래스가 cloneable을 구현하면, clone메소드를 동기화해주어야한다.</p>
+
+<p>하위 클래스가 클론못하게하려면 protected final로 하자. 메소드 퇴화시키기.</p>
+
+<p>클론 대안이 될 수 있는 복사 생성자, 복사 팩토리는 좋은점도있다.(conversion constructor, conversion factory)</p>
+
+<h3 id="아이템14-comparable을-구현할지-고려하라">아이템14 Comparable을 구현할지 고려하라</h3>
+
+<dl>
+  <dt>Comparable의 유일 메서드</dt>
+  <dd>compareTo</dd>
+</dl>
+
+<p>동치성 비교+ 순서까지 비교, 제너릭하다.</p>
+
+<p>클래스의 인스턴스들에 자연적인 순서가 존재하게 한다.</p>
+
+<p>그래서 이걸 하면 그 클래스 배열은 Arrays.sort(a);할 수 있다.</p>
+
+<p>주의점은 이퀄즈와 비슷하다. 반사성, 대칭성, 추이성.</p>
+
+<p>동치성 결과는 이퀄즈와 같게 하도록.</p>
+
+<p>무엇을 먼저 비교하느냐도 상관있다. 먼저 결정되면 먼저 반환하기 떄문에.</p>
 
 </div>
   </div>
