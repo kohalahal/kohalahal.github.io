@@ -1,0 +1,16 @@
+I"8<p>요일마다 화이팅하는 “요팅!”팀의 요리 레시피를 공유하는 SNS 서비스 프로젝트<br /></p>
+
+<div class="image-container">
+  <a href="https://cookstagram.me" target="_blank">
+    <img src="https://raw.githubusercontent.com/kohalahal/kohalahal.github.io/master/assets/image/progress/5-1.PNG" class="progress-image" onerror="this.style.display='none';" />
+    <div class="overlay">
+      <div class="text">
+        
+          구경하기 <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        
+      </div>
+    </div>
+  </a>
+</div>
+
+:ET

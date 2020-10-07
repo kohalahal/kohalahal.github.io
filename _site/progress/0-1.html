@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poor+Story&family=Black+Han+Sans&family=Do+Hyeon&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -18,6 +19,9 @@
 
 
 
+    <script src="https://kit.fontawesome.com/a18004eea6.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/js/script.js"></script>
     <title>Green Screen</title>
 </head>
 <body>
@@ -25,46 +29,54 @@
         <header>
   <div class="header">
     <div class="logo">
-      <a id="title" href="http://kohalahal.github.io">KOHALAHAL.github.io</a>
+      <a id="title" href="http://kohalahal.github.io"><h1 class="kohalahal">KOHALAHAL</h1></a>
+      <h3 class="github">.github.io</h3>
     </div>
-    <div class = "nav">
+
+    <nav>
       <ul>
-        
+            
         <li>      
-              
+          
           <a href="/about.html">About</a>  
-              
-          <a href="/progress.html">과제</a>  
-              
-          <a href="/read/index.html">읽기</a>  
-              
-          <a href="/contact.html">Contact</a>  
-                  
+          
         </li>
-        
+            
+        <li>      
+          
+          <a href="/progress.html">Progress</a>  
+          
+        </li>
+            
+        <li>      
+          
+          <a href="/read/index.html">Posts</a>  
+          
+        </li>
+            
+        <li>      
+          
+          <a href="/contact.html">Contact</a>  
+          
+        </li>
+            
       </ul>
-    </div>    
+    </nav>
+    <div id="menu-icon">
+      <i class="fas fa-bars"></i>
+    </div>  
   </div>              
-</header>
- 
+</header> 
         <div class="content">
-        <section>
+            <section>
   <div class="post-container">
-    <h1 class="post-title">Green Screen</h1>
     <div class="post-load"><p>코세라 강의에서 만든 미니 프로젝트
 초록색 배경을 두고 찍은 사진에 배경 이미지를 합성해주는 기능을 가진 페이지</p>
 
 <div class="image-container">
-  <a href="https://codepen.io/kohalahal/pen/PowdOGj" target="_blank">
-    <img src="https://raw.githubusercontent.com/kohalahal/kohalahal.github.io/master/assets/image/progress/0-1.PNG" alt="과제 이미지" class="progress-image" />
-    <div class="overlay">
-      <div class="text">
-        
-          구경하기 <i class="fa fa-arrow-right" aria-hidden="true"></i>
-        
-      </div>
-    </div>
-  </a>
+  <img src="https://raw.githubusercontent.com/kohalahal/kohalahal.github.io/master/assets/image/progress/0-1.PNG" class="progress-image" onerror="this.style.display='none';" />
+  
+  <a href="https://codepen.io/kohalahal/pen/PowdOGj" class="btn-3">구경하기 <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
 </div>
 
 </div>
@@ -75,5 +87,12 @@
 
         </div>
     </div>
+    <footer>
+  <div class="footer-wrapper">
+    <div class="footer-tagline">
+      <p>© Copyright 2020 KOHALAHAL</p>
+    </div>
+  </div>
+</footer> 
 </body>
 </html>

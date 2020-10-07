@@ -1,0 +1,17 @@
+I"t<p>코세라 강의에서 만든 미니 프로젝트
+초록색 배경을 두고 찍은 사진에 배경 이미지를 합성해주는 기능을 가진 페이지</p>
+
+<div class="image-container">
+  <a href="https://codepen.io/kohalahal/pen/PowdOGj" target="_blank">
+    <img src="https://raw.githubusercontent.com/kohalahal/kohalahal.github.io/master/assets/image/progress/0-1.PNG" class="progress-image" onerror="this.style.display='none';" />
+    <div class="overlay">
+      <div class="text">
+        
+          구경하기 <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        
+      </div>
+    </div>
+  </a>
+</div>
+
+:ET

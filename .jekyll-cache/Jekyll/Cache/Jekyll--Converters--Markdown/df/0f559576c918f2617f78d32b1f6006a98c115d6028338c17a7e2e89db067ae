@@ -1,0 +1,9 @@
+I"v<p>카드 게임</p>
+
+<div class="image-container">
+  <img src="https://raw.githubusercontent.com/kohalahal/kohalahal.github.io/master/assets/image/progress/2-5.PNG" class="progress-image" onerror="this.style.display='none';" />
+  
+  <a href="https://github.com/kohalahal/CardGame" class="btn-3">구경하기 <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+</div>
+
+:ET

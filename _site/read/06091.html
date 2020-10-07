@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poor+Story&family=Black+Han+Sans&family=Do+Hyeon&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -18,6 +19,9 @@
 
 
 
+    <script src="https://kit.fontawesome.com/a18004eea6.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/js/script.js"></script>
     <title>이펙티브 자바 앞부분 + 1,2장 객체 생성과 파괴, Object 메소드(아이템1~14)</title>
 </head>
 <body>
@@ -25,32 +29,47 @@
         <header>
   <div class="header">
     <div class="logo">
-      <a id="title" href="http://kohalahal.github.io">KOHALAHAL.github.io</a>
+      <a id="title" href="http://kohalahal.github.io"><h1 class="kohalahal">KOHALAHAL</h1></a>
+      <h3 class="github">.github.io</h3>
     </div>
-    <div class = "nav">
+
+    <nav>
       <ul>
-        
+            
         <li>      
-              
+          
           <a href="/about.html">About</a>  
-              
-          <a href="/progress.html">과제</a>  
-              
-          <a href="/read/index.html">읽기</a>  
-              
-          <a href="/contact.html">Contact</a>  
-                  
+          
         </li>
-        
+            
+        <li>      
+          
+          <a href="/progress.html">Progress</a>  
+          
+        </li>
+            
+        <li>      
+          
+          <a href="/read/index.html">Posts</a>  
+          
+        </li>
+            
+        <li>      
+          
+          <a href="/contact.html">Contact</a>  
+          
+        </li>
+            
       </ul>
-    </div>    
+    </nav>
+    <div id="menu-icon">
+      <i class="fas fa-bars"></i>
+    </div>  
   </div>              
-</header>
- 
+</header> 
         <div class="content">
-        <section>
+            <section>
   <div class="post-container">
-    <h1 class="post-title">이펙티브 자바 앞부분 + 1,2장 객체 생성과 파괴, Object 메소드(아이템1~14)</h1>
     <div class="post-load"><h2 id="제1장-들어가기">제1장 들어가기</h2>
 
 <p>프로그래밍 언어를 할 때, 그 언어 핵심(알고리즘적인지 함수적인지 객체지향인지..), 어휘, 관례·효과적 방법등 알아야.</p>
@@ -333,5 +352,12 @@ readResolve() 메서드로 return INSTANCE; 해야한다.</p>
 
         </div>
     </div>
+    <footer>
+  <div class="footer-wrapper">
+    <div class="footer-tagline">
+      <p>© Copyright 2020 KOHALAHAL</p>
+    </div>
+  </div>
+</footer> 
 </body>
 </html>
