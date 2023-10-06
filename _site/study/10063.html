@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poor+Story&family=Black+Han+Sans&family=Do+Hyeon&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-166323516-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+    <script src="https://kit.fontawesome.com/a18004eea6.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/js/script.js"></script>
+    <title>시스템 프로그래밍 기초 1</title>
+</head>
+<body>
+    <div class="page">
+        <header>
+  <div class="header">
+    <div class="logo">
+      <a id="title" href="http://kohalahal.github.io"><h1 class="kohalahal">KOHALAHAL</h1></a>
+      <h3 class="github">.github.io</h3>
+    </div>
+
+    <nav>
+      <ul>
+            
+        <li>      
+          
+          <a href="/about.html">About</a>  
+          
+        </li>
+            
+        <li>      
+          
+          <a href="/progress.html">Progress</a>  
+          
+        </li>
+            
+        <li>      
+          
+          <a href="/read/index.html">Posts</a>  
+          
+        </li>
+            
+        <li>      
+          
+          <a href="/contact.html">Contact</a>  
+          
+        </li>
+            
+      </ul>
+    </nav>
+    <div id="menu-icon">
+      <i class="fas fa-bars"></i>
+    </div>  
+  </div>              
+</header> 
+        <div class="content">
+            <div class="content-title">
+                <h1>시스템 프로그래밍 기초 1</h1>
+            </div>
+         <div class="content-txt">
+            <section>
+  <div class="post-container">
+    <div class="post-load"><h3 id="시스템-프로그래밍">시스템 프로그래밍</h3>
+
+<p>프로그래밍 언어로 시스템이 어떻게 돌아갈지 생각하면서 개발하기</p>
+
+<h2 id="컴퓨터-시스템은">컴퓨터 시스템은</h2>
+
+<p>하드웨어 &lt;-&gt; 운영체제 &lt;-&gt; 애플리케이션</p>
+
+<h1 id="하드웨어">하드웨어</h1>
+<p>CPU, HDD, RAM, 입출력 장치…</p>
+
+<h1 id="운영체제">운영체제</h1>
+<ul>
+  <li>아키텍처(하드웨어 구조-x86, ARM, 32bit, 몇코어 등) 디펜던트 커널 - 하드웨어와 처음 맞물리는 부분
+하드웨어에 따라 달라져서 인식하고 사용할 수 있게 해주는 커널</li>
+  <li>커널 - 운영체제의 코어 기능
+ = 파일 시스템 - FAT32 등 각 운영체제마다 파일 시스템 다른 것을 쓴다.
+ = 프로세스 관리 - 프로세스 생성 및 관리
+ = 인터프로세스 커뮤니케이션 - 프로세스간 커뮤니케이션
+ = 입출력, 기기 관리</li>
+  <li>시스템 콜 인터페이스
+ = 프로그램이 컴퓨터 하드웨어 호출 필요할때 여기 정의된 함수 통해서 호출
+ = 파일을 가져와달라 등등</li>
+  <li>라이브러리
+ = 시스템 라이브러리 - 운체에 여러 기능이 구현되어있다.</li>
+  <li>유저 애플리케이션</li>
+</ul>
+
+<h1 id="운체의-종류">운체의 종류</h1>
+<ul>
+  <li>배치 시스템(옛날)</li>
+  <li>멀티프로그래밍 배치 시스템( 타임 쉐어링 시스템) 현대는 다 이런 기능이 있다. 하드웨어 하나, 시간 나눠쓴다</li>
+  <li>멀티프로세서 - 하드웨어 자체가 여러개, 운체가 잘 관리해야</li>
+  <li>디스트리뷰티드 운체 - 분산된 하드웨어를 관리</li>
+  <li>리얼타임 운체 - 윈도나 맥은 리얼타임 보장못함.
+예)유도미사일 - 각 프로세서가 정해진 정해진 시간안에 계산이 이루어져야한다.</li>
+</ul>
+
+<h2 id="c-프로그램-개발-환경">C 프로그램 개발 환경</h2>
+<h1 id="에디터">에디터</h1>
+<p>에서 프로그램 짜서 디스크에 저장</p>
+<h1 id="프로세서">프로세서</h1>
+<p>가 헤더에 정의된 directives등을 골라내서 코드와 분리해서 디스크에 저장</p>
+<h1 id="컴파일러">컴파일러</h1>
+<p>가 코드를 받아서 변수 골라내고 메모리 배치할 것 고르고 코드 어셈블리화하고 바이너리로된 오브젝트 코드 등등을 만들어 디스크에 저장</p>
+<h1 id="링커">링커</h1>
+<p>가 컴파일러가 만든 오브젝트 코드를 붙이고, 라이브러리와 붙여서 실행 파일을 만들어 저장</p>
+<h1 id="로더">로더</h1>
+<p>가 디스크에서 프로그램을 읽어서 메모리에 올린다.</p>
+<h1 id="cpu">CPU</h1>
+<p>가 각 명령문을 실행하고 생성된 데이터를 저장하거나 한다.</p>
+
+<h2 id="임베디드-시스템은">임베디드 시스템은</h2>
+<p>하드웨어와 소프트웨어를 결합해서 만드는 모든 것을 통칭</p>
+
+<p>컴퓨터도 임베디드 시스템의 한 종류</p>
+
+<p>임베디드 하드웨어 &lt;-&gt; 임베디드 운영체제 &lt;-&gt; 유저 애플리케이션</p>
+
+<p>출처 시스템 프로그래밍 기초 남해운</p>
+</div>
+  </div>
+
+</section>
+
+
+         </div>
+        </div>
+    </div>
+    <footer>
+  <div class="footer-wrapper">
+    <div class="footer-tagline">
+      <p>© Copyright 2020 KOHALAHAL</p>
+    </div>
+  </div>
+</footer> 
+</body>
+</html>

@@ -14,3 +14,4 @@ install_if -> {RUBY_PLATFORM =~ %r!mingw|mswin|java! } do
 end
 
 gem 'jekyll-admin', group: :jekyll_plugins
+gem "webrick", "~> 1.8"
