@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poor+Story&family=Black+Han+Sans&family=Do+Hyeon&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-166323516-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+    <script src="https://kit.fontawesome.com/a18004eea6.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/js/script.js"></script>
+    <title>Coffee Break Python - 파이썬 기초</title>
+</head>
+<body>
+    <div class="page">
+        <header>
+  <div class="header">
+    <div class="logo">
+      <a id="title" href="http://kohalahal.github.io"><h1 class="kohalahal">KOHALAHAL</h1></a>
+      <h3 class="github">.github.io</h3>
+    </div>
+
+    <nav>
+      <ul>
+            
+        <li>      
+          
+          <a href="/about.html">About</a>  
+          
+        </li>
+            
+        <li>      
+          
+          <a href="/progress.html">Progress</a>  
+          
+        </li>
+            
+        <li>      
+          
+          <a href="/read/index.html">Posts</a>  
+          
+        </li>
+            
+        <li>      
+          
+          <a href="/contact.html">Contact</a>  
+          
+        </li>
+            
+      </ul>
+    </nav>
+    <div id="menu-icon">
+      <i class="fas fa-bars"></i>
+    </div>  
+  </div>              
+</header> 
+        <div class="content">
+            <div class="content-title">
+                <h1>Coffee Break Python - 파이썬 기초</h1>
+            </div>
+         <div class="content-txt">
+            <section>
+  <div class="post-container">
+    <div class="post-load"><p>무료 E북이지만 간단하고 명료한 설명 굿</p>
+
+<h1 id="a-quick-overview-of-the-python-language">A QUICK OVERVIEW OF THE PYTHON LANGUAGE</h1>
+
+<h3 id="논리연산">논리연산</h3>
+<p>부울대수 : 참/거짓 두 가지 상태</p>
+
+<p>게이트: 논리 연산을 하는 소자</p>
+
+<h3 id="break-continue">break, continue</h3>
+<p>반복문을 미리 종료 / 반복문의 현재 반복을 종료</p>
+
+<h3 id="if--else-if-else">if , else if, else</h3>
+<p>조건적인 프로그램 실행 - 프로그램이 if문에서 True인 논리연산을 찾기 시작하여 다음 문들을 시도하고 else문에서 마친다.</p>
+
+<h3 id="return">return</h3>
+<p>함수를 종료하고 실행흐름을 호출자에게 넘긴다.</p>
+
+<h3 id="기본-데이터-타입">기본 데이터 타입</h3>
+<p>기본형을 통해 더 높은 수준의 개념을 만든다. 집을 지을 때 벽돌과 같다.</p>
+
+<p>복잡한 데이터 타입은 기본 데이터 타입들로 만들어진다.</p>
+
+<h3 id="complex-numbers">complex numbers</h3>
+<p>예: 41.999+0.1*i</p>
+
+<p>방정식의 앞부분은 실제 숫자, 뒷부분은 모르는 숫자</p>
+
+<h3>//</h3>
+<p>나눗셈의 정수 몫</p>
+
+<p>예: 3 // 2 = 1</p>
+
+<h3 id="-1">**</h3>
+<p>거듭제곱</p>
+
+<p>예: 2 ** 3 = 8</p>
+
+<h3 id="스트링-인덱싱과-슬라이싱">스트링 인덱싱과 슬라이싱</h3>
+<p>s = “asdasd”</p>
+
+<p>s[0] 0번째 글짜</p>
+
+<p>s[1:3] 1번째~3번째</p>
+
+<p>s[-3:] 뒤에서 3번째 글자부터 자르기</p>
+
+<p>s[-3:-1] 뒤에서 3번째 글자부터 뒤에서 1번째 글자까지 자르기</p>
+
+<h3 id="스트링-중요-메소드">스트링 중요 메소드</h3>
+<p>s.strip() 앞 뒤 공백 없애기</p>
+
+<p>s.lower()</p>
+
+<p>s.upper()</p>
+
+<p>s.startswith(‘ddd’) 불린</p>
+
+<p>s.endswith(‘ddd’) 불린</p>
+
+<p>s.find(“ddd”) 인덱스</p>
+
+<p>s.replace(“d”, “q”)</p>
+
+<p>’,’.join([“F”, “b”, “I”]) “F,b,I”</p>
+
+<p>len(“sss”) 길이</p>
+
+<p>“ear” in “earth” 불린</p>
+
+<h3 id="복합-데이터-타입">복합 데이터 타입</h3>
+
+<h3 id="list">list</h3>
+<p>순서가 있는 여러 데이터 (sequence)</p>
+
+<p>l = [1,2,2]</p>
+
+<h3 id="리스트-컨트롤">리스트 컨트롤</h3>
+<p>l.append(4) 요소 넣기 가장 빠르다</p>
+
+<p>l.insert(2,2)</p>
+
+<p>l + [4]</p>
+
+<p>l.remove(1) 해당 값을 지운다, 느리다</p>
+
+<p>l.reverse()</p>
+
+<p>l.sort() 긴 리스트는 느리다,  O(n log n)</p>
+
+<p>l.index(2) 해당 값의 인덱스</p>
+
+<p>l.index(2, 1) 1번째 자리 이후 해당 값의 인덱스(그 자리 포함)</p>
+
+<h3 id="set">set</h3>
+<p>순서가 없는 여러 데이터, 특정 데이터값 찾기가 리스트보다 빠르다</p>
+
+<p>s = {‘apple’, ‘eggs’}</p>
+
+<h3 id="stack">stack</h3>
+
+<p>s = [3]</p>
+
+<p>파이썬 리스트는 append와 pop 기능이 있어서 스택으로 쓸 수 있다</p>
+
+<p>s.append(43) 뒤에 추가된다</p>
+
+<p>s.pop() 맨 뒷 값이 나오고 리스트에서는 빠진다</p>
+
+<h3 id="dictionary">dictionary</h3>
+<p>키밸류 데이터</p>
+
+<p>c = {​’apple’​ : ​52​, ‘banana’​ : ​89​, ‘choco’​ : ​546​}</p>
+
+<p>c[​’apple’​] 밸류</p>
+
+<p>c[‘rice’] = 100 데이터 추가</p>
+
+<p>‘apple’ in c.keys()</p>
+
+<p>52 in c.values()</p>
+
+<p>for k, v in c.items():
+    print(k) if v &gt; 500 else None</p>
+
+<h3 id="리스트와-셋-comprehension">리스트와 셋 comprehension</h3>
+
+<p>[(‘Hi ‘ + x) for x in [‘Alice’, ‘Bob’, Pete]] 하면 [‘Hi Alice’, ‘Hi Bob’, ‘Hi Pete’]</p>
+
+<p>[x * y for x in range(3) for y in range(3) if x&gt;y] 하면 [0, 0, 2]</p>
+
+<p>{x**2 for x in [0,2,4] if x &lt; 4} 하면 {0, 4}</p>
+
+<h3 id="객체지향-클래스-오브젝트">객체지향, 클래스, 오브젝트</h3>
+
+<p>객제지향 프로그래밍은 영향력있고 강력하고 표현적인 프로그래밍 추상이다.</p>
+
+<p>개발자는 클래스와 객체를 갖고 생각한다.</p>
+
+<p>클래스는 객체의 청사진이다.</p>
+
+<p>한 객체는 특정 데이터를 갖고있고 클래스에 정의된 기능을 제공한다.</p>
+
+<p>예를 들어 도시 개발 게임을 개발하면 객지에서는 빌딩, 사람, 차 등 모든 것을 객체로 표현하고, 걔네는 데이터를 갖고, ‘월임대수익계산()’같은 기능을 가진다.</p>
+
+<p>그러면 다른 개발자가 코드를 쉽게 읽고 이해할 수 있다.</p>
+
+<p>더 대박인 것은, 책임을 쉽게 나눌 수 있다. 누구는 빌딩을 짜고, 누구는 차를 짜고.</p>
+
+<p>요약하면 객체지향프로그래밍은 읽기 쉬운 코드를 짜도록 도와준다. 복잡한 문제를 여러사람과 함께 작업하여 해결할 수 있다.</p>
+
+<h3 id="클래스">클래스</h3>
+
+<p>데이터와 기능을 캡슐화한다.</p>
+
+<p>데이터는 속성, 기능은 함수다.</p>
+
+<p>이는 메모리에 실제 인스턴스를 만드는 설계서다.</p>
+
+<h3 id="인스턴스">인스턴스</h3>
+
+<p>당신은 인간 클래스의 인스턴스다.</p>
+
+<p>인스턴스는 클래스의 실재하는 구현이다 : 인스턴스의 모든 속성은 고정된 값을 가진다.(당신의 머리는 금발이거나 갈색이거나 검정색이지 정해지지않은 적이 없다.)</p>
+
+<p>각 인스턴스는 다른 인스턴스들과 독립적으로 고유한 속성을 가진다.</p>
+
+<p>클래스 변수는 클래스에 관계된 데이터값이고, 인스턴스에 관한것이 아니라서 모든 인스턴스가 같은 클래스 변수를 공유한다.</p>
+
+<h3 id="self">self</h3>
+<p>클래스의 함수를 정의할때 첫 변수는 늘 self이다.</p>
+
+<p>이 함수를 호출하는 인스턴스가 된다.</p>
+
+<p>self는 파이썬 인터프리터에게 실재 인스턴트의 정보를 준다.</p>
+
+<p>호출할 때는 self를 명시해서 전달할 필요가 없다.</p>
+
+<h3 id="mapfunc-iter">map(func, iter)</h3>
+<p>iterable의 모든 요소에 function을 실행한다.</p>
+
+<p>예: list(map(lambda x: x[0], [‘red’, ‘green’, ‘blue]))</p>
+
+<p>[‘r’, ‘g’, ‘b’]</p>
+
+<h3 id="mapfunc-i1--ik">map(func, i1, …, ik)</h3>
+<p>k개 iterable의 모든 요소에 function을 실행한다.</p>
+
+<p>예: list(map(lambda x, y: str(x) + ‘ ‘ + y + ‘s’, [0,2,2], [‘apple’, ‘orange’, ‘banana]))</p>
+
+<p>[‘0 apples’, ‘2 oranges’, ‘2 bananas’]</p>
+
+<h3 id="stringjoiniter">string.join(iter)</h3>
+<p>iterable을 string을 껴서 붙인다.
+‘ marries ‘.join(list([‘Alice’, ‘Bob’]))</p>
+
+<p>‘Alice marries Bob’</p>
+
+<h3 id="filterfunc-iter">filter(func, iter)</h3>
+<p>iterable에서 펑션 실행하면 Flase 혹은 0을 리턴하는 요소를 뺀다.</p>
+
+<p>예: list(filter(lambda x: True if x&gt;17 else False, [1, 15, 17, 18]))</p>
+
+<p>[18]</p>
+
+<h3 id="sortediter">sorted(iter)</h3>
+<p>오름차순 정렬</p>
+
+<h3 id="sortediter-keykey">sorted(iter, key=key)</h3>
+<p>키펑션에 의해 오름차순 정렬</p>
+
+<p>sorted([8,3,2,42,5], key=lambda x: 0 if x==42 else x)</p>
+
+<p>[42, 2,3,5,8]</p>
+
+<h3 id="zipi1-i2-">zip(i1, i2, …)</h3>
+<p>i번째 요소를 모은다</p>
+
+<p>예: list(zip([‘Alice’, ‘Anna’], [‘Bob’, ‘Jon’, ‘Frank’]))</p>
+
+<p>[(‘Alice’, ‘Bob’), (‘Anna’, ‘Jon)]</p>
+
+<h3 id="unzip">Unzip</h3>
+<p>1) zip된 리스트를 푼다.</p>
+
+<p>2) 결과를 zip한다.</p>
+
+<p>예: list(zip(*[(‘Alice’, ‘Bob’), (‘Anna’, ‘Jon)]))</p>
+
+<p>[(‘Alice’, ‘Anna’), (‘Bob’, ‘Jon)]</p>
+
+<h3 id="enumerateiter">enumerate(iter)</h3>
+<p>센 값을 iterable의 각 요소에 분배한다.</p>
+
+<p>예: list(enumerate([‘Alice’, ‘Bob’, ‘Jon’]))</p>
+
+<p>[(0, ‘Alice’), (1, ‘Bob’), (2, ‘Jon’)]</p>
+
+<h3 id="swapping">swapping</h3>
+<p>a, b = ‘Jane’, ‘Alice’
+a, b = b, a</p>
+
+<h3 id="시퀀스-풀어서-전달하기">시퀀스 풀어서 전달하기</h3>
+<p>시퀀스를 *연산자 사용해서 함수 파라미터로 쓰세요.</p>
+
+<p>딕셔너리는 **</p>
+
+<p>예: def f(x,y,z):
+    return x+y*z</p>
+
+<p>f(*[1,3,4]) 하면 13</p>
+
+<p>f(**{‘z’:4, ‘x’:1, ‘y’:3}) 해도 13</p>
+
+<h3 id="시퀀스-풀기-심화">시퀀스 풀기 심화</h3>
+<p>풀어서 여러개 변수 할당할 때 쓰기</p>
+
+<p>예: a, *b = [1,2,3,4,5] 하면 a = 1 이고 b = [2,3,4,5]</p>
+
+<h3 id="사전-합치기">사전 합치기</h3>
+<p>두 사전을 한 사전으로 합치는데 시퀀스 풀기 * 쓰기</p>
+
+<p>예: x = {‘Alice’:18}</p>
+
+<p>y = {‘Bob’:27, ‘Ann’:22}</p>
+
+<p>z = {**x, **y}</p>
+
+<p>하면</p>
+
+<p>z = {‘Alice’:18, ‘Bob’:27, ‘Ann’:22}</p>
+
+</div>
+  </div>
+
+</section>
+
+
+         </div>
+        </div>
+    </div>
+    <footer>
+  <div class="footer-wrapper">
+    <div class="footer-tagline">
+      <p>© Copyright 2020 KOHALAHAL</p>
+    </div>
+  </div>
+</footer> 
+</body>
+</html>
